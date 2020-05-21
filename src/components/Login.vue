@@ -1,7 +1,7 @@
 <template>
   <div class="login-page">
     <image
-      src="../img/logo-big.jpg"
+      :src="logo"
       class="logo"
     />
     <text class="login-title">登&nbsp;&nbsp;录</text>
@@ -27,21 +27,27 @@
 </template>
 <script>
 import { WxcButton } from "weex-ui";
+import { getImg } from "@/tool.js";
 
 export default {
   components: { WxcButton },
 
   data() {
     return {
-      logo: "https://gw.alicdn.com/tfs/TB1yopEdgoQMeJjy1XaXXcSsFXa-640-302.png",
-      logoImg: logoImg
+      logo: getImg("logo-big.jpg")
     };
+  },
+
+  methods: {
+    wxcButtonClicked() {}
   }
 };
 </script>
 <style scoped>
+.login-page {
+  text-align: center;
+}
 .logo {
-  width: 424px;
   height: 200px;
 }
 .login-title {

@@ -4,45 +4,45 @@
     <div class="week-count">
       <div class="title">
         <text>信息录入</text>
-        <text>本周<text>
+        <text>本周</text>
       </div>
       <div class="detail">
-        <text class="item">
+        <div class="item">
           <text>+2</text>
           <text>项目信息</text>
-        </text>
-        <text class="item">
+        </div>
+        <div class="item">
           <text>+2</text>
           <text>项目信息</text>
-        </text>
-        <text class="item">
+        </div>
+        <div class="item">
           <text>+2</text>
           <text>项目信息</text>
-        </text>
+        </div>
       </div>
     </div>
     <div class="toggle-add">
-      <text class="item">
+      <div class="item">
         <image
           src="../img/logo-big.jpg"
           class="logo"
         />
         <text>项目</text>
-      </text>
-      <text>
+      </div>
+      <div>
         <image
           src="../img/logo-big.jpg"
           class="logo"
         />
         <text>景区</text>
-      </text>
-      <text>
+      </div>
+      <div>
         <image
           src="../img/logo-big.jpg"
           class="logo"
         />
         <text>商户</text>
-      </text>
+      </div>
     </div>
   </div>
 </template>

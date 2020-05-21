@@ -1,25 +1,24 @@
 <template>
   <div class="wrapper">
-    <router-view />
-    <wxc-tab-bar
-      class="tab-wrapper"
-      :tab-titles="tabTitles"
-      :tab-styles="tabStyles"
-      title-type="icon"
-      @wxcTabBarCurrentTabSelected="wxcTabBarCurrentTabSelected"
+    <transition name="slide">
+      <router-view />
+    </transition>
+    <div
+      v-if="showBottomTabs"
+      class="bottom-tab"
     >
-      <!-- 第一个页面内容-->
-      <div class="item-container"><text>首页</text></div>
-
-      <!-- 第二个页面内容-->
-      <div class="item-container"><text>特别推荐2222</text></div>
-
-      <!-- 第三个页面内容-->
-      <div class="item-container"><text>消息中心</text></div>
-
-      <!-- 第四个页面内容-->
-      <div class="item-container"><text>我的主页</text></div>
-    </wxc-tab-bar>
+      <div
+        class="item"
+        v-for="(item,index) in bottomTabs"
+        :key="index"
+      >
+        <image
+          :src="router == item.router ? item.activeImg : item.img"
+          class="icon-tab"
+          @click="$router.push(item.router)"
+        />
+        <text class="tab-text">{{item.text}}</text></div>
+    </div>
   </div>
 </template>
 
@@ -30,18 +29,24 @@ export default {
   name: "App",
   components: { WxcTabBar },
   data() {
-    return { tabTitles: Config.tabTitles, tabStyles: Config.tabStyles };
+    return {
+      bottomTabs: Config.bottomTabs,
+      router: "/"
+    };
+  },
+  computed: {
+    showBottomTabs() {
+      return Config.bottomTabsShowRouter.includes(this.router);
+    }
+  },
+  watch: {
+    $route() {
+      this.router = this.$route.path;
+    }
   },
   methods: {
-    wxcTabBarCurrentTabSelected(e) {
-      console.log(e.page);
-      if (e.page == 0) {
-        this.$router.push("/home");
-      } else if (e.page == 1) {
-        this.$router.push("/record");
-      } else if (e.page == 2) {
-        this.$router.push("/notice");
-      }
+    iconTab(item) {
+      return this.$route.path == item.router ? item.activeImg : item.img;
     }
   }
 };
@@ -56,6 +61,24 @@ export default {
   position: absolute !important;
   bottom: 0 !important;
   top: unset !important;
+}
+.bottom-tab {
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  width: calc(100%);
+  padding: 20px 10px;
+  flex-direction: row;
+  justify-content: space-around;
   box-shadow: 0px 10px 40px #ccc;
+}
+.icon-tab {
+  width: 60px;
+  height: 60px;
+}
+.tab-text {
+  margin-top: 10px;
+  font-size: 30px;
+  color: #00bf8b;
 }
 </style>

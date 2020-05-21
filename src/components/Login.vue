@@ -40,7 +40,7 @@ export default {
 
   methods: {
     wxcButtonClicked() {
-      this.$router.push('/home')
+      this.$router.push("/home");
     }
   }
 };
@@ -63,7 +63,7 @@ export default {
   height: 80px;
   font-size: 50px;
   margin: 20px auto;
-  padding-left:20px;
+  padding-left: 20px;
   border-width: 2px;
   border-style: solid;
   border-color: rgb(255, 80, 0);
@@ -72,5 +72,8 @@ export default {
 
 .button {
   margin-top: 40px;
+}
+placeholder-color {
+  color: red;
 }
 </style>

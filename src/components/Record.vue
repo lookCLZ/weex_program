@@ -21,29 +21,7 @@
         </div>
       </div>
     </div>
-    <div class="toggle-add">
-      <div class="item">
-        <image
-          src="../img/logo-big.jpg"
-          class="logo"
-        />
-        <text>项目</text>
-      </div>
-      <div>
-        <image
-          src="../img/logo-big.jpg"
-          class="logo"
-        />
-        <text>景区</text>
-      </div>
-      <div>
-        <image
-          src="../img/logo-big.jpg"
-          class="logo"
-        />
-        <text>商户</text>
-      </div>
-    </div>
+ ccccccccccccccccccccccccccccccccc
   </div>
 </template>
 <script>

@@ -18,5 +18,22 @@ export default {
       text: "公告",
     }
   ],
-  bottomTabsShowRouter: ["/home", "/record", "/notice"]
+  bottomTabsShowRouter: ["/home", "/record", "/notice"],
+  addRecords:[
+    {
+      img:getImg("project.png"),
+      router:"add_project",
+      text:"项目",
+    },
+    {
+      img:getImg("scenic.png"),
+      router:"add_scenic",
+      text:"景区",
+    },
+    {
+      img:getImg("merchant.png"),
+      router:"add_merchant",
+      text:"商户",
+    },
+  ]
 }

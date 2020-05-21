@@ -9,12 +9,12 @@
       <input
         class="input"
         type="text"
-        placeholder="  用户名"
+        placeholder="用户名"
       >
       <input
         class="input"
         type="password"
-        placeholder="  密码"
+        placeholder="密码"
       >
       <wxc-button
         text="确定"
@@ -39,7 +39,9 @@ export default {
   },
 
   methods: {
-    wxcButtonClicked() {}
+    wxcButtonClicked() {
+      this.$router.push('/home')
+    }
   }
 };
 </script>
@@ -57,10 +59,11 @@ export default {
   color: rgb(255, 80, 0);
 }
 .input {
-  width: 100%;
+  width: calc(100%);
   height: 80px;
   font-size: 50px;
   margin: 20px auto;
+  padding-left:20px;
   border-width: 2px;
   border-style: solid;
   border-color: rgb(255, 80, 0);

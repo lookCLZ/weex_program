@@ -1,6 +1,6 @@
 <template>
   <div class="login-page">
-    <div>代勇明</div>
+    <div>代勇明bbbbbbb</div>
     <div class="week-count">
       <div class="title">
         <text>信息录入</text>

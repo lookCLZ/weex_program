@@ -4942,7 +4942,7 @@ exports.default = {
 
   data: function data() {
     return {
-      logo: (0, _tool.getImg)("logo-big.jpg")
+      logo: (0, _tool.getImg)("logo_big.jpg")
     };
   },
 

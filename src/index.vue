@@ -57,11 +57,6 @@ export default {
   justify-content: center;
   align-items: center;
 }
-.tab-wrapper {
-  position: absolute !important;
-  bottom: 0 !important;
-  top: unset !important;
-}
 .bottom-tab {
   position: absolute;
   bottom: 0;

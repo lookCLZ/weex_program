@@ -4,7 +4,6 @@
       :src="logo"
       class="logo"
     />
-    <text class="login-title">登&nbsp;&nbsp;录</text>
     <div class="form">
       <input
         class="input"
@@ -17,7 +16,7 @@
         placeholder="密码"
       >
       <wxc-button
-        text="确定"
+        text="登录"
         class="button"
         @wxcButtonClicked="wxcButtonClicked"
       ></wxc-button>
@@ -51,12 +50,7 @@ export default {
 }
 .logo {
   height: 200px;
-}
-.login-title {
-  margin-top: 50px;
-  text-align: center;
-  font-size: 80px;
-  color: rgb(255, 80, 0);
+  margin-bottom: 40px;
 }
 .input {
   width: calc(100%);
@@ -64,14 +58,13 @@ export default {
   font-size: 50px;
   margin: 20px auto;
   padding-left: 20px;
-  border-width: 2px;
-  border-style: solid;
-  border-color: rgb(255, 80, 0);
-  border-radius: 4px;
+  border: none;
+  border-bottom: 2px solid rgb(255, 80, 0);
+  outline: none;
 }
 
 .button {
-  margin-top: 40px;
+  margin-top: 80px;
 }
 placeholder-color {
   color: red;

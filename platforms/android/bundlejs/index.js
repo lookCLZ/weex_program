@@ -1836,7 +1836,7 @@ module.exports = __vue_exports__
 var _require = __webpack_require__(16),
     router = _require.router;
 
-var App = __webpack_require__(258);
+var App = __webpack_require__(259);
 /* eslint-disable no-new */
 new Vue(Vue.util.extend({ el: '#root', router: router }, App));
 router.push('/');
@@ -1861,7 +1861,7 @@ var _Login = __webpack_require__(18);
 
 var _Login2 = _interopRequireDefault(_Login);
 
-var _Home = __webpack_require__(254);
+var _Home = __webpack_require__(255);
 
 var _Home2 = _interopRequireDefault(_Home);
 
@@ -4832,7 +4832,7 @@ __vue_styles__.push(__webpack_require__(19)
 __vue_exports__ = __webpack_require__(20)
 
 /* template */
-var __vue_template__ = __webpack_require__(253)
+var __vue_template__ = __webpack_require__(254)
 __vue_options__ = __vue_exports__ = __vue_exports__ || {}
 if (
   typeof __vue_exports__.default === "object" ||
@@ -4907,7 +4907,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _weexUi = __webpack_require__(6);
 
-var _tool = __webpack_require__(262);
+var _tool = __webpack_require__(253);
 
 //
 //
@@ -22912,6 +22912,36 @@ module.exports.render._withStripped = true
 
 /***/ }),
 /* 253 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+var getImg = exports.getImg = function getImg(img_name) {
+    // 获取图片在三端上不同的路径
+    var platform = weex.config.env.platform;
+    var img_path = '';
+    if (platform == 'Web') {
+        img_path = 'src/images/' + img_name;
+    } else if (platform == 'android') {
+        //android 不需要后缀
+        img_name = img_name.substr(0, img_name.lastIndexOf('.'));
+        img_path = 'local:///' + img_name;
+    } else {
+        img_path = 'local:///' + img_name; // img_path = `../images/${img_name}`
+    }
+    return img_path;
+};
+
+exports.default = {
+    getImg: getImg
+};
+
+/***/ }),
+/* 254 */
 /***/ (function(module, exports) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -22951,21 +22981,21 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
 module.exports.render._withStripped = true
 
 /***/ }),
-/* 254 */
+/* 255 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __vue_exports__, __vue_options__
 var __vue_styles__ = []
 
 /* styles */
-__vue_styles__.push(__webpack_require__(255)
+__vue_styles__.push(__webpack_require__(256)
 )
 
 /* script */
-__vue_exports__ = __webpack_require__(256)
+__vue_exports__ = __webpack_require__(257)
 
 /* template */
-var __vue_template__ = __webpack_require__(257)
+var __vue_template__ = __webpack_require__(258)
 __vue_options__ = __vue_exports__ = __vue_exports__ || {}
 if (
   typeof __vue_exports__.default === "object" ||
@@ -22995,7 +23025,7 @@ module.exports = __vue_exports__
 
 
 /***/ }),
-/* 255 */
+/* 256 */
 /***/ (function(module, exports) {
 
 module.exports = {
@@ -23026,7 +23056,7 @@ module.exports = {
 }
 
 /***/ }),
-/* 256 */
+/* 257 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -23097,7 +23127,7 @@ exports.default = {
 //
 
 /***/ }),
-/* 257 */
+/* 258 */
 /***/ (function(module, exports) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -23141,21 +23171,21 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
 module.exports.render._withStripped = true
 
 /***/ }),
-/* 258 */
+/* 259 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __vue_exports__, __vue_options__
 var __vue_styles__ = []
 
 /* styles */
-__vue_styles__.push(__webpack_require__(259)
+__vue_styles__.push(__webpack_require__(260)
 )
 
 /* script */
-__vue_exports__ = __webpack_require__(260)
+__vue_exports__ = __webpack_require__(261)
 
 /* template */
-var __vue_template__ = __webpack_require__(261)
+var __vue_template__ = __webpack_require__(262)
 __vue_options__ = __vue_exports__ = __vue_exports__ || {}
 if (
   typeof __vue_exports__.default === "object" ||
@@ -23185,7 +23215,7 @@ module.exports = __vue_exports__
 
 
 /***/ }),
-/* 259 */
+/* 260 */
 /***/ (function(module, exports) {
 
 module.exports = {
@@ -23196,7 +23226,7 @@ module.exports = {
 }
 
 /***/ }),
-/* 260 */
+/* 261 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -23222,7 +23252,7 @@ exports.default = {
 };
 
 /***/ }),
-/* 261 */
+/* 262 */
 /***/ (function(module, exports) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -23231,36 +23261,6 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }, [_c('router-view')], 1)
 },staticRenderFns: []}
 module.exports.render._withStripped = true
-
-/***/ }),
-/* 262 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-var getImg = exports.getImg = function getImg(img_name) {
-    // 获取图片在三端上不同的路径
-    var platform = weex.config.env.platform;
-    var img_path = '';
-    if (platform == 'Web') {
-        img_path = 'src/images/' + img_name;
-    } else if (platform == 'android') {
-        //android 不需要后缀
-        img_name = img_name.substr(0, img_name.lastIndexOf('.'));
-        img_path = 'local:///' + img_name;
-    } else {
-        img_path = 'local:///' + img_name; // img_path = `../images/${img_name}`
-    }
-    return img_path;
-};
-
-exports.default = {
-    getImg: getImg
-};
 
 /***/ })
 /******/ ]);

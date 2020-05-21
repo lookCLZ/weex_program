@@ -34,7 +34,7 @@ export default {
 
   data() {
     return {
-      logo: getImg("logo-big.jpg")
+      logo: getImg("logo_big.jpg")
     };
   },
 

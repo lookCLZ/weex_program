@@ -3,46 +3,46 @@
     <div>代勇明</div>
     <div class="week-count">
       <div class="title">
-        <span>信息录入</span>
-        <span>本周<span>
+        <text>信息录入</text>
+        <text>本周<text>
       </div>
       <div class="detail">
-        <span class="item">
-          <span>+2</span>
-          <span>项目信息</span>
-        </span>
-        <span class="item">
-          <span>+2</span>
-          <span>项目信息</span>
-        </span>
-        <span class="item">
-          <span>+2</span>
-          <span>项目信息</span>
-        </span>
+        <text class="item">
+          <text>+2</text>
+          <text>项目信息</text>
+        </text>
+        <text class="item">
+          <text>+2</text>
+          <text>项目信息</text>
+        </text>
+        <text class="item">
+          <text>+2</text>
+          <text>项目信息</text>
+        </text>
       </div>
     </div>
     <div class="toggle-add">
-      <span class="item">
+      <text class="item">
         <image
           src="../img/logo-big.jpg"
           class="logo"
         />
-        <span>项目</span>
-      </span>
-      <span>
+        <text>项目</text>
+      </text>
+      <text>
         <image
           src="../img/logo-big.jpg"
           class="logo"
         />
-        <span>景区</span>
-      </span>
-      <span>
+        <text>景区</text>
+      </text>
+      <text>
         <image
           src="../img/logo-big.jpg"
           class="logo"
         />
-        <span>商户</span>
-      </span>
+        <text>商户</text>
+      </text>
     </div>
   </div>
 </template>

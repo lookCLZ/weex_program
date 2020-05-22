@@ -1307,6 +1307,28 @@ exports.default = BindEnv;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+
+var _index = __webpack_require__(80);
+
+Object.defineProperty(exports, 'default', {
+  enumerable: true,
+  get: function get() {
+    return _interopRequireDefault(_index).default;
+  }
+});
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+/***/ }),
+/* 4 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
 exports.WxcTag = exports.WxcTabPage = exports.WxcTabBar = exports.WxcSwipeAction = exports.WxcStepper = exports.WxcSpecialRichText = exports.WxcSliderBar = exports.WxcSlideNav = exports.WxcSimpleFlow = exports.WxcSearchbar = exports.WxcRichText = exports.WxcResult = exports.WxcRefresher = exports.WxcRadio = exports.WxcProgress = exports.WxcPopup = exports.WxcPopover = exports.WxcPartLoading = exports.WxcPanItem = exports.WxcPageCalendar = exports.WxcOverlay = exports.WxcNoticebar = exports.WxcMinibar = exports.WxcMask = exports.WxcLotteryRain = exports.WxcLoading = exports.WxcLightbox = exports.WxcIndexlist = exports.WxcIcon = exports.WxcGridSelect = exports.WxcFullPage = exports.WxcEpSlider = exports.WxcDialog = exports.WxcCountdown = exports.WxcCity = exports.WxcCheckboxList = exports.WxcCheckbox = exports.WxcCell = exports.WxcButton = exports.Utils = exports.BindEnv = undefined;
 
 var _bindEnv = __webpack_require__(22);
@@ -1361,7 +1383,7 @@ var _wxcIcon = __webpack_require__(105);
 
 var _wxcIcon2 = _interopRequireDefault(_wxcIcon);
 
-var _wxcIndexlist = __webpack_require__(10);
+var _wxcIndexlist = __webpack_require__(11);
 
 var _wxcIndexlist2 = _interopRequireDefault(_wxcIndexlist);
 
@@ -1377,11 +1399,11 @@ var _wxcLotteryRain = __webpack_require__(125);
 
 var _wxcLotteryRain2 = _interopRequireDefault(_wxcLotteryRain);
 
-var _wxcMask = __webpack_require__(11);
+var _wxcMask = __webpack_require__(12);
 
 var _wxcMask2 = _interopRequireDefault(_wxcMask);
 
-var _wxcMinibar = __webpack_require__(13);
+var _wxcMinibar = __webpack_require__(14);
 
 var _wxcMinibar2 = _interopRequireDefault(_wxcMinibar);
 
@@ -1389,7 +1411,7 @@ var _wxcNoticebar = __webpack_require__(141);
 
 var _wxcNoticebar2 = _interopRequireDefault(_wxcNoticebar);
 
-var _wxcOverlay = __webpack_require__(4);
+var _wxcOverlay = __webpack_require__(3);
 
 var _wxcOverlay2 = _interopRequireDefault(_wxcOverlay);
 
@@ -1425,7 +1447,7 @@ var _wxcRefresher = __webpack_require__(186);
 
 var _wxcRefresher2 = _interopRequireDefault(_wxcRefresher);
 
-var _wxcResult = __webpack_require__(9);
+var _wxcResult = __webpack_require__(10);
 
 var _wxcResult2 = _interopRequireDefault(_wxcResult);
 
@@ -1433,7 +1455,7 @@ var _wxcRichText = __webpack_require__(191);
 
 var _wxcRichText2 = _interopRequireDefault(_wxcRichText);
 
-var _wxcSearchbar = __webpack_require__(8);
+var _wxcSearchbar = __webpack_require__(9);
 
 var _wxcSearchbar2 = _interopRequireDefault(_wxcSearchbar);
 
@@ -1520,28 +1542,6 @@ exports.WxcTag = _wxcTag2.default; /**
                                     */
 
 /***/ }),
-/* 4 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _index = __webpack_require__(80);
-
-Object.defineProperty(exports, 'default', {
-  enumerable: true,
-  get: function get() {
-    return _interopRequireDefault(_index).default;
-  }
-});
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-/***/ }),
 /* 5 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -1611,6 +1611,36 @@ module.exports = __vue_exports__
 /* 7 */
 /***/ (function(module, exports, __webpack_require__) {
 
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+var getImg = exports.getImg = function getImg(img_name) {
+    // 获取图片在三端上不同的路径
+    var platform = weex.config.env.platform;
+    var img_path = '';
+    if (platform == 'Web') {
+        img_path = 'src/images/' + img_name;
+    } else if (platform == 'android') {
+        //android 不需要后缀
+        img_name = img_name.substr(0, img_name.lastIndexOf('.'));
+        img_path = 'local:///' + img_name;
+    } else {
+        img_path = 'local:///' + img_name; // img_path = `../images/${img_name}`
+    }
+    return img_path;
+};
+
+exports.default = {
+    getImg: getImg
+};
+
+/***/ }),
+/* 8 */
+/***/ (function(module, exports, __webpack_require__) {
+
 var __vue_exports__, __vue_options__
 var __vue_styles__ = []
 
@@ -1652,7 +1682,7 @@ module.exports = __vue_exports__
 
 
 /***/ }),
-/* 8 */
+/* 9 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1674,7 +1704,7 @@ Object.defineProperty(exports, 'default', {
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 /***/ }),
-/* 9 */
+/* 10 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1696,7 +1726,7 @@ Object.defineProperty(exports, 'default', {
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 /***/ }),
-/* 10 */
+/* 11 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1718,7 +1748,7 @@ Object.defineProperty(exports, 'default', {
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 /***/ }),
-/* 11 */
+/* 12 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1740,7 +1770,7 @@ Object.defineProperty(exports, 'default', {
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 /***/ }),
-/* 12 */
+/* 13 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1758,7 +1788,7 @@ var BLACK_GIF = exports.BLACK_GIF = 'https://img.alicdn.com/tfs/TB1Ep_9NVXXXXb8X
 var PART = exports.PART = 'https://gtms02.alicdn.com/tfs/TB1y4QbSXXXXXbgapXXXXXXXXXX-50-50.gif';
 
 /***/ }),
-/* 13 */
+/* 14 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1780,7 +1810,7 @@ Object.defineProperty(exports, 'default', {
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 /***/ }),
-/* 14 */
+/* 15 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __vue_exports__, __vue_options__
@@ -1822,36 +1852,6 @@ if (typeof __register_static_styles__ === "function") {
 
 module.exports = __vue_exports__
 
-
-/***/ }),
-/* 15 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-var getImg = exports.getImg = function getImg(img_name) {
-    // 获取图片在三端上不同的路径
-    var platform = weex.config.env.platform;
-    var img_path = '';
-    if (platform == 'Web') {
-        img_path = 'src/images/' + img_name;
-    } else if (platform == 'android') {
-        //android 不需要后缀
-        img_name = img_name.substr(0, img_name.lastIndexOf('.'));
-        img_path = 'local:///' + img_name;
-    } else {
-        img_path = 'local:///' + img_name; // img_path = `../images/${img_name}`
-    }
-    return img_path;
-};
-
-exports.default = {
-    getImg: getImg
-};
 
 /***/ }),
 /* 16 */
@@ -4913,24 +4913,34 @@ module.exports = __vue_exports__
 
 module.exports = {
   "login-page": {
-    "textAlign": "center"
+    "display": "flex",
+    "alignItems": "center",
+    "justifyContent": "center"
   },
   "logo": {
-    "height": "200",
+    "width": "500",
+    "height": "150",
+    "marginTop": 0,
     "marginBottom": "40"
   },
+  "form": {
+    "display": "flex",
+    "alignItems": "center"
+  },
   "input": {
+    "width": "750",
     "height": "80",
     "fontSize": "50",
     "marginTop": "20",
     "marginBottom": "20",
-    "paddingLeft": "20",
-    "border": "none",
+    "paddingLeft": "40",
     "borderBottom": "2px solid rgb(255, 80, 0)",
-    "outline": "none"
+    "outline": "none",
+    "placeholderColor": "rgb(255, 80, 0)"
   },
   "button": {
-    "marginTop": "80"
+    "marginTop": "80",
+    "marginBottom": 0
   }
 }
 
@@ -4945,9 +4955,9 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _weexUi = __webpack_require__(3);
+var _weexUi = __webpack_require__(4);
 
-var _tool = __webpack_require__(15);
+var _tool = __webpack_require__(7);
 
 //
 //
@@ -6298,7 +6308,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _index = __webpack_require__(7);
+var _index = __webpack_require__(8);
 
 Object.defineProperty(exports, 'default', {
   enumerable: true,
@@ -6623,7 +6633,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _index = __webpack_require__(7);
+var _index = __webpack_require__(8);
 
 var _index2 = _interopRequireDefault(_index);
 
@@ -6879,15 +6889,15 @@ var _tab = __webpack_require__(51);
 
 var _tab2 = _interopRequireDefault(_tab);
 
-var _wxcSearchbar = __webpack_require__(8);
+var _wxcSearchbar = __webpack_require__(9);
 
 var _wxcSearchbar2 = _interopRequireDefault(_wxcSearchbar);
 
-var _wxcResult = __webpack_require__(9);
+var _wxcResult = __webpack_require__(10);
 
 var _wxcResult2 = _interopRequireDefault(_wxcResult);
 
-var _wxcIndexlist = __webpack_require__(10);
+var _wxcIndexlist = __webpack_require__(11);
 
 var _wxcIndexlist2 = _interopRequireDefault(_wxcIndexlist);
 
@@ -9632,7 +9642,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _wxcOverlay = __webpack_require__(4);
+var _wxcOverlay = __webpack_require__(3);
 
 var _wxcOverlay2 = _interopRequireDefault(_wxcOverlay);
 
@@ -12216,7 +12226,7 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 //
 //
 
-var _wxcMask = __webpack_require__(11);
+var _wxcMask = __webpack_require__(12);
 
 var _wxcMask2 = _interopRequireDefault(_wxcMask);
 
@@ -12366,7 +12376,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
-var _wxcOverlay = __webpack_require__(4);
+var _wxcOverlay = __webpack_require__(3);
 
 var _wxcOverlay2 = _interopRequireDefault(_wxcOverlay);
 
@@ -12849,7 +12859,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _type = __webpack_require__(12);
+var _type = __webpack_require__(13);
 
 var _utils = __webpack_require__(0);
 
@@ -14641,7 +14651,7 @@ var _utils = __webpack_require__(0);
 
 var _utils2 = _interopRequireDefault(_utils);
 
-var _wxcMinibar = __webpack_require__(13);
+var _wxcMinibar = __webpack_require__(14);
 
 var _wxcMinibar2 = _interopRequireDefault(_wxcMinibar);
 
@@ -15651,7 +15661,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _type = __webpack_require__(12);
+var _type = __webpack_require__(13);
 
 exports.default = {
   props: {
@@ -16353,7 +16363,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
-var _wxcOverlay = __webpack_require__(4);
+var _wxcOverlay = __webpack_require__(3);
 
 var _wxcOverlay2 = _interopRequireDefault(_wxcOverlay);
 
@@ -17827,7 +17837,7 @@ exports.default = {
     WxcRichTextText: __webpack_require__(6),
     WxcRichTextLink: __webpack_require__(198),
     WxcRichTextIcon: __webpack_require__(201),
-    WxcRichTextTag: __webpack_require__(14)
+    WxcRichTextTag: __webpack_require__(15)
   },
   props: {
     configList: {
@@ -20500,7 +20510,7 @@ var _wxcRichTextText = __webpack_require__(6);
 
 var _wxcRichTextText2 = _interopRequireDefault(_wxcRichTextText);
 
-var _wxcRichTextTag = __webpack_require__(14);
+var _wxcRichTextTag = __webpack_require__(15);
 
 var _wxcRichTextTag2 = _interopRequireDefault(_wxcRichTextTag);
 
@@ -23045,8 +23055,9 @@ module.exports = {
     "right": 0
   },
   "top-section": {
-    "background": "#00bf8b",
-    "height": "350"
+    "width": "750",
+    "height": "350",
+    "backgroundColor": "#00bf8b"
   },
   "username": {
     "fontSize": "50",
@@ -23056,13 +23067,66 @@ module.exports = {
     "marginBottom": 0,
     "marginLeft": "25"
   },
+  "week-count-wrapper": {
+    "display": "flex",
+    "alignItems": "center"
+  },
   "week-count": {
-    "background": "#fff",
+    "width": "700",
+    "height": "330",
+    "backgroundColor": "#ffffff",
     "borderRadius": "20",
-    "marginTop": 0,
-    "marginBottom": 0,
     "transform": "translateY(50px)",
     "boxShadow": "0 0 20px 4px #ccc"
+  },
+  "header": {
+    "display": "flex",
+    "justifyContent": "center",
+    "flexDirection": "row",
+    "alignItems": "center",
+    "marginTop": "40",
+    "marginRight": 0,
+    "marginBottom": 0,
+    "marginLeft": 0
+  },
+  "header-title": {
+    "fontSize": "40",
+    "color": "#333333",
+    "fontWeight": "700"
+  },
+  "header-during": {
+    "marginTop": 0,
+    "marginRight": 0,
+    "marginBottom": 0,
+    "marginLeft": "5",
+    "fontSize": "30"
+  },
+  "detail-1": {
+    "display": "flex",
+    "justifyContent": "space-around",
+    "flexDirection": "row"
+  },
+  "detail-item-1": {
+    "width": "140",
+    "height": "80"
+  },
+  "detail-item-num": {
+    "fontWeight": "800",
+    "fontSize": "50",
+    "color": "#333333",
+    "marginTop": "10"
+  },
+  "detail-item-text": {
+    "fontWeight": "400",
+    "fontSize": "40",
+    "color": "#333333",
+    "marginTop": "10"
+  },
+  "detail-2": {
+    "width": "700",
+    "display": "flex",
+    "flexDirection": "row",
+    "justifyContent": "space-around"
   }
 }
 
@@ -23077,35 +23141,22 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _weexUi = __webpack_require__(3);
+var _tool = __webpack_require__(7);
 
 exports.default = {
-  components: { WxcButton: _weexUi.WxcButton },
-
   data: function data() {
-    return {};
+    return {
+      logo: (0, _tool.getImg)("logo_big.jpg")
+    };
+  },
+
+
+  methods: {
+    wxcButtonClicked: function wxcButtonClicked() {
+      this.$router.push("/home");
+    }
   }
 }; //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -23151,53 +23202,38 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }, [_c('text', {
     staticClass: ["username"]
   }, [_vm._v("代先生")]), _c('div', {
+    staticClass: ["week-count-wrapper"]
+  }, [_c('div', {
     staticClass: ["week-count"]
   }, [_c('div', {
     staticClass: ["header"]
   }, [_c('text', {
-    staticClass: ["title"]
+    staticClass: ["header-title"]
   }, [_vm._v("信息录入")]), _c('text', {
-    staticClass: ["during"]
+    staticClass: ["header-during"]
   }, [_vm._v("(本周)")])]), _c('div', {
-    staticClass: ["detail"]
+    staticClass: ["detail-1"]
   }, [_c('div', {
-    staticClass: ["item"]
+    staticClass: ["detail-item-1"]
   }, [_c('text', {
-    staticClass: ["num"]
-  }, [_vm._v("+22")]), _c('text', {
-    staticClass: ["text"]
-  }, [_vm._v("项目信息")])]), _c('div', {
-    staticClass: ["item"]
+    staticClass: ["detail-item-num"]
+  }, [_vm._v("+22")])]), _c('div', {
+    staticClass: ["detail-item-1"]
   }, [_c('text', {
-    staticClass: ["num"]
-  }, [_vm._v("+232")]), _c('text', {
-    staticClass: ["text"]
-  }, [_vm._v("项目信息")])]), _c('div', {
-    staticClass: ["item"]
+    staticClass: ["detail-item-num"]
+  }, [_vm._v("+232")])]), _c('div', {
+    staticClass: ["detail-item-1"]
   }, [_c('text', {
-    staticClass: ["num"]
-  }, [_vm._v("+221")]), _c('text', {
-    staticClass: ["text"]
-  }, [_vm._v("项目信息")])])])])]), _c('div', {
-    staticClass: ["toggle-add"]
-  }, [_c('div', {
-    staticClass: ["item"]
-  }, [_c('image', {
-    staticClass: ["logo"],
-    attrs: {
-      "src": "../img/logo-big.jpg"
-    }
-  }), _c('text', [_vm._v("项目")])]), _c('div', [_c('image', {
-    staticClass: ["logo"],
-    attrs: {
-      "src": "../img/logo-big.jpg"
-    }
-  }), _c('text', [_vm._v("景区")])]), _c('div', [_c('image', {
-    staticClass: ["logo"],
-    attrs: {
-      "src": "../img/logo-big.jpg"
-    }
-  }), _c('text', [_vm._v("商户")])])])])
+    staticClass: ["detail-item-num"]
+  }, [_vm._v("+221")])])]), _c('div', {
+    staticClass: ["detail-2"]
+  }, [_c('text', {
+    staticClass: ["detail-item-text"]
+  }, [_vm._v("项目信息")]), _c('text', {
+    staticClass: ["detail-item-text"]
+  }, [_vm._v("景区信息")]), _c('text', {
+    staticClass: ["detail-item-text"]
+  }, [_vm._v("商户信息")])])])])])])
 }]}
 module.exports.render._withStripped = true
 
@@ -23250,29 +23286,8 @@ module.exports = __vue_exports__
 /***/ (function(module, exports) {
 
 module.exports = {
-  "logo": {
-    "width": "424",
-    "height": "200"
-  },
-  "login-title": {
-    "marginTop": "50",
-    "textAlign": "center",
-    "fontSize": "80",
-    "color": "rgb(255,80,0)"
-  },
-  "input": {
-    "width": 100,
-    "height": "80",
-    "fontSize": "50",
-    "marginTop": "20",
-    "marginBottom": "20",
-    "borderWidth": "2",
-    "borderStyle": "solid",
-    "borderColor": "rgb(255,80,0)",
-    "borderRadius": "4"
-  },
-  "button": {
-    "marginTop": "40"
+  "abc": {
+    "fontSize": "380"
   }
 }
 
@@ -23286,50 +23301,17 @@ module.exports = {
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-
-var _weexUi = __webpack_require__(3);
+//
+//
+//
+//
+//
 
 exports.default = {
-  components: { WxcButton: _weexUi.WxcButton },
-
   data: function data() {
     return {};
   }
-}; //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+};
 
 /***/ }),
 /* 262 */
@@ -23340,28 +23322,9 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
 },staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
     staticClass: ["login-page"]
-  }, [_c('div', [_vm._v("代勇明bbbbbbb")]), _c('div', {
-    staticClass: ["week-count"]
   }, [_c('div', {
-    staticClass: ["title"]
-  }, [_c('text', [_vm._v("信息录入")]), _c('text', [_vm._v("本周")])]), _c('div', {
-    staticClass: ["detail"]
-  }, [_c('div', {
-    staticClass: ["item"]
-  }, [_c('text', [_vm._v("+2")]), _c('text', [_vm._v("项目信息")])]), _c('div', {
-    staticClass: ["item"]
-  }, [_c('text', [_vm._v("+2")]), _c('text', [_vm._v("项目信息")])]), _c('div', {
-    staticClass: ["item"]
-  }, [_c('text', [_vm._v("+2")]), _c('text', [_vm._v("项目信息")])])])]), _c('div', {
-    staticClass: ["toggle-add"]
-  }, [_c('div', {
-    staticClass: ["item"]
-  }, [_c('image', {
-    staticClass: ["logo"],
-    attrs: {
-      "src": "../img/logo-big.jpg"
-    }
-  }), _c('text', [_vm._v("项目")])])])])
+    staticClass: ["abc"]
+  }, [_vm._v("代勇明bbbbbbb")])])
 }]}
 module.exports.render._withStripped = true
 
@@ -23451,7 +23414,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _weexUi = __webpack_require__(3);
+var _weexUi = __webpack_require__(4);
 
 exports.default = {
   components: { WxcButton: _weexUi.WxcButton },
@@ -23567,6 +23530,8 @@ module.exports = {
   "bottom-tab": {
     "position": "absolute",
     "bottom": 0,
+    "width": "750",
+    "height": "140",
     "display": "flex",
     "paddingTop": "20",
     "paddingRight": "10",
@@ -23598,7 +23563,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _weexUi = __webpack_require__(3);
+var _weexUi = __webpack_require__(4);
 
 var _config = __webpack_require__(270);
 
@@ -23606,8 +23571,6 @@ var _config2 = _interopRequireDefault(_config);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-//
-//
 //
 //
 //
@@ -23669,7 +23632,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _tool = __webpack_require__(15);
+var _tool = __webpack_require__(7);
 
 exports.default = {
   bottomTabs: [{
@@ -23711,11 +23674,7 @@ exports.default = {
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
     staticClass: ["wrapper"]
-  }, [_c('transition', {
-    attrs: {
-      "name": "slide"
-    }
-  }, [_c('router-view')], 1), (_vm.showBottomTabs) ? _c('div', {
+  }, [_c('router-view'), (_vm.showBottomTabs) ? _c('div', {
     staticClass: ["bottom-tab"]
   }, _vm._l((_vm.bottomTabs), function(item, index) {
     return _c('div', {

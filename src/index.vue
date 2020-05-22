@@ -1,8 +1,6 @@
 <template>
   <div class="wrapper">
-    <transition name="slide">
       <router-view />
-    </transition>
     <div
       v-if="showBottomTabs"
       class="bottom-tab"
@@ -65,7 +63,7 @@ export default {
   display: flex;
   padding: 20px 10px;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-around;
   box-shadow: 0px 10px 40px #ccc;
 }
 .icon-tab {

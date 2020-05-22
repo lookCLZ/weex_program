@@ -1,61 +1,65 @@
 <template>
   <div class="home-page">
     <div class="top-section">
-      <text class="username">代先生</text>
-      <!-- <div class="week-count">
-        <div class="header">
-          <text class="title">信息录入</text>
-          <text class="during">(本周)</text>
+      <div class="gray-bg">
+        <text class="username">代先生</text>
+      </div>
+      <div class="week-count-wrapper">
+        <div class="week-count">
+          <div class="header">
+            <text class="header-title">信息录入</text>
+            <text class="header-during">(本周)</text>
+          </div>
+          <div class="detail-1">
+            <div class="detail-item-1">
+              <text class="detail-item-num">+22</text>
+            </div>
+            <div class="detail-item-1">
+              <text class="detail-item-num">+232</text>
+            </div>
+            <div class="detail-item-1">
+              <text class="detail-item-num">+221</text>
+            </div>
+          </div>
+          <div class="detail-2">
+            <text class="detail-item-text">项目信息</text>
+            <text class="detail-item-text">景区信息</text>
+            <text class="detail-item-text">商户信息</text>
+          </div>
         </div>
-        <div class="detail">
-          <div class="item">
-            <text class="num">+22</text>
-            <text class="text">项目信息</text>
-          </div>
-          <div class="item">
-            <text class="num">+232</text>
-            <text class="text">项目信息</text>
-          </div>
-          <div class="item">
-            <text class="num">+221</text>
-            <text class="text">项目信息</text>
-          </div>
-        </div>
-      </div> -->
+      </div>
+      <div></div>
     </div>
-
-    <!-- <div class="toggle-add">
-      <div class="item">
+    <div class="toggle-add">
+      <div
+        class="item"
+        v-for="(item,index) in addRecords"
+        :key="index"
+      >
         <image
-          src="../img/logo-big.jpg"
+          :src="item.img"
           class="logo"
         />
-        <text>项目</text>
+        <text>{{item.text}}</text>
       </div>
-      <div>
-        <image
-          src="../img/logo-big.jpg"
-          class="logo"
-        />
-        <text>景区</text>
-      </div>
-      <div>
-        <image
-          src="../img/logo-big.jpg"
-          class="logo"
-        />
-        <text>商户</text>
-      </div>
-    </div> -->
+    </div>
   </div>
 </template>
 <script>
-import { WxcButton } from "weex-ui";
+import { getImg } from "@/tool.js";
+import Config from "@/config.js";
 
 export default {
-  components: { WxcButton },
   data() {
-    return {};
+    return {
+      addRecords: Config.addRecords
+    };
+  },
+
+  methods: {
+    wxcButtonClicked() {
+      this.$router.push("/home");
+    }
   }
 };
 </script>
@@ -67,55 +71,76 @@ export default {
   right: 0;
 }
 .top-section {
-  border-radius: 0 0 15% 15%;
-  background: #00bf8b;
+  width: 750px;
+  height: 650px;
+  overflow: visible;
+}
+.gray-bg {
+  width: 750px;
   height: 350px;
+  background-color: #00bf8b;
+  border-bottom-left-radius: 50px;
+  border-bottom-right-radius: 50px;
 }
 .username {
   font-size: 50px;
   color: #fff;
   margin: 80px 0 0 25px;
 }
-/* .week-count {
-  width: calc(100% - 50px);
-  background: #fff;
+.week-count-wrapper {
+  display: flex;
+  align-items: center;
+  transform: translateY(-120px);
+}
+.week-count {
+  width: 700px;
+  height: 280px;
   border-radius: 20px;
-  margin: 0 auto;
-  transform: translateY(50px);
   box-shadow: 0 0 20px 4px #ccc;
-} */
-/* .week-count .header {
+  transform: translateY(0px);
+  background-color: #fff;
+}
+.header {
   display: flex;
   justify-content: center;
   flex-direction: row;
   align-items: center;
   margin: 40px 0 0 0;
 }
-.week-count .title {
+.header-title {
   font-size: 40px;
   color: #333333;
   font-weight: 700;
 }
-.week-count .during {
+.header-during {
   margin: 0 0 0 5px;
   font-size: 30px;
 }
-.week-count .detail {
+.detail-1 {
   display: flex;
   justify-content: space-around;
   flex-direction: row;
-  margin-bottom: 40px;
 }
-.week-count .detail .item .num {
+.detail-item-1 {
+  width: 140px;
+  height: 80px;
+}
+.detail-item-num {
   font-weight: 800;
   font-size: 50px;
   color: #333333;
   margin-top: 30px;
 }
-.week-count .detail .item .text {
-  font-size: 20px;
+.detail-item-text {
+  font-weight: 400;
+  font-size: 30px;
   color: #b4b4b4;
-  text-align: center;
-  margin-top: 18px;
-} */
+}
+.detail-2 {
+  margin-top: 30px;
+  width: 700px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
 </style>

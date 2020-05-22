@@ -28,21 +28,21 @@
           </div>
         </div>
       </div>
-      <div></div>
     </div>
     <div class="toggle-add">
       <div
-        class="item"
+        class="toggle-add-item"
         v-for="(item,index) in addRecords"
         :key="index"
       >
         <image
           :src="item.img"
-          class="logo"
+          class="toggle-add-item-icon"
         />
-        <text>{{item.text}}</text>
+        <text class="toggle-add-item-text">{{item.text}}</text>
       </div>
     </div>
+    <web class="web" src="https://www.taobao.com/"></web>
   </div>
 </template>
 <script>
@@ -72,7 +72,7 @@ export default {
 }
 .top-section {
   width: 750px;
-  height: 650px;
+  height: 540px;
   overflow: visible;
 }
 .gray-bg {
@@ -90,7 +90,7 @@ export default {
 .week-count-wrapper {
   display: flex;
   align-items: center;
-  transform: translateY(-120px);
+  transform: translateY(-130px);
 }
 .week-count {
   width: 700px;
@@ -142,5 +142,24 @@ export default {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+}
+.toggle-add{
+  display:flex;
+  justify-content: space-around;
+  flex-direction: row;
+}
+.toggle-add-item-icon{
+  width:120px;
+  height:120px;
+}
+.toggle-add-item-text{
+  font-size:30px;
+  color:#333;
+  text-align:center;
+  margin-top:10px;
+}
+.web{
+  width:300px;
+  height:300px;
 }
 </style>

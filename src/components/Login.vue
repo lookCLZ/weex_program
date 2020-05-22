@@ -46,27 +46,32 @@ export default {
 </script>
 <style scoped>
 .login-page {
-  text-align: center;
+  display:flex;
+  align-items: center;
+  justify-content: center;
 }
 .logo {
-  height: 200px;
-  margin-bottom: 40px;
+  width: 500px;
+  height: 150px;
+  margin: 0 auto 40px;
+}
+.form{
+  display:flex;
+  align-items: center;
 }
 .input {
-  width: calc(100%);
+  width: 750px;
   height: 80px;
   font-size: 50px;
   margin: 20px auto;
-  padding-left: 20px;
-  border: none;
+  padding-left: 40px;
   border-bottom: 2px solid rgb(255, 80, 0);
   outline: none;
+  placeholder-color:rgb(255, 80, 0);
 }
 
 .button {
-  margin-top: 80px;
+  margin: 80px auto 0;
 }
-placeholder-color {
-  color: red;
-}
+
 </style>

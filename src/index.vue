@@ -60,11 +60,12 @@ export default {
 .bottom-tab {
   position: absolute;
   bottom: 0;
+  width: 750px;
+  height: 140px;
   display: flex;
-  width: calc(100%);
   padding: 20px 10px;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-between;
   box-shadow: 0px 10px 40px #ccc;
 }
 .icon-tab {

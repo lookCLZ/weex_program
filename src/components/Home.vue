@@ -2,7 +2,7 @@
   <div class="home-page">
     <div class="top-section">
       <text class="username">代先生</text>
-      <div class="week-count">
+      <!-- <div class="week-count">
         <div class="header">
           <text class="title">信息录入</text>
           <text class="during">(本周)</text>
@@ -21,10 +21,10 @@
             <text class="text">项目信息</text>
           </div>
         </div>
-      </div>
+      </div> -->
     </div>
 
-    <div class="toggle-add">
+    <!-- <div class="toggle-add">
       <div class="item">
         <image
           src="../img/logo-big.jpg"
@@ -46,7 +46,7 @@
         />
         <text>商户</text>
       </div>
-    </div>
+    </div> -->
   </div>
 </template>
 <script>
@@ -54,7 +54,6 @@ import { WxcButton } from "weex-ui";
 
 export default {
   components: { WxcButton },
-
   data() {
     return {};
   }
@@ -77,15 +76,15 @@ export default {
   color: #fff;
   margin: 80px 0 0 25px;
 }
-.week-count {
+/* .week-count {
   width: calc(100% - 50px);
   background: #fff;
   border-radius: 20px;
   margin: 0 auto;
   transform: translateY(50px);
   box-shadow: 0 0 20px 4px #ccc;
-}
-.week-count .header {
+} */
+/* .week-count .header {
   display: flex;
   justify-content: center;
   flex-direction: row;
@@ -118,5 +117,5 @@ export default {
   color: #b4b4b4;
   text-align: center;
   margin-top: 18px;
-}
+} */
 </style>

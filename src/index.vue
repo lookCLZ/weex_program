@@ -1,7 +1,7 @@
 <template>
   <div class="wrapper">
     <login v-if="!logged" />
-    <Operate v-else />
+    <operate v-if="logged" />
   </div>
 </template>
 
@@ -9,7 +9,9 @@
 import Operate from "@/components/Operate";
 import Login from "@/components/Login";
 import { WxcTabBar, Utils } from "weex-ui";
-import { setInterval } from "@/tool.js";
+const storage = weex.requireModule("storage");
+const modal = weex.requireModule("modal");
+
 export default {
   name: "App",
   components: {

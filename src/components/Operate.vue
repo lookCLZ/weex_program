@@ -12,7 +12,14 @@
       class="item-container"
       :style="contentStyle"
     >
-      <home />
+      <home
+        v-if="!homeWebShow"
+        :set-home-web-show="setHomeWebShow"
+      />
+      <home-web
+        v-if="homeWebShow"
+        :set-home-web-show="setHomeWebShow"
+      />
     </div>
 
     <!-- 第二个页面内容-->
@@ -30,6 +37,14 @@
     >
       <notice />
     </div>
+
+    <!-- 第四个页面内容-->
+    <div
+      class="item-container"
+      :style="contentStyle"
+    >
+      吧vvvvvv
+    </div>
   </wxc-tab-bar>
 </template>
 
@@ -37,27 +52,32 @@
 import Home from "@/components/Home";
 import Record from "@/components/Record";
 import Notice from "@/components/Notice";
+import HomeWeb from "@/components/HomeWeb";
 import { WxcTabBar, Utils } from "weex-ui";
 import Config from "@/config.js";
 
 export default {
-  components: { Home, Record, Notice, WxcTabBar },
+  components: { Home, Record, Notice, HomeWeb, WxcTabBar },
   data() {
     return {
       tabTitles: Config.tabTitles,
       tabStyles: Config.tabStyles,
-      tabIconFontStyles: Config.tabIconFontStyles
+      tabIconFontStyles: Config.tabIconFontStyles,
+      homeWebShow: false
     };
   },
   created() {
-    const tabPageHeight = env.deviceHeight / env.deviceWidth * 750;
+    const tabPageHeight = (env.deviceHeight / env.deviceWidth) * 750;
     const { tabStyles } = this;
-   this.contentStyle = { height: tabPageHeight - tabStyles.height + "px" };
+    this.contentStyle = { height: tabPageHeight - tabStyles.height + "px" };
   },
   methods: {
     wxcTabBarCurrentTabSelected(e) {
       const index = e.page;
       // console.log(index);
+    },
+    setHomeWebShow(v) {
+      this.homeWebShow = v;
     }
   }
 };

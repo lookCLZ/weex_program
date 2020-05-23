@@ -1,68 +1,66 @@
 <template>
   <scroller class="home-page">
-    <refresh class="refresh">
-      拉拉更健康
-    </refresh>
-      <div class="top-section">
-        <div class="gray-bg">
-          <text class="username">代先生</text>
-        </div>
-        <div class="week-count-wrapper">
-          <div class="week-count">
-            <div class="header">
-              <text class="header-title">信息录入</text>
-              <text class="header-during">(本周)</text>
+    <div class="top-section">
+      <div class="gray-bg">
+        <text class="username">代先生</text>
+      </div>
+      <div class="week-count-wrapper">
+        <div class="week-count">
+          <div class="header">
+            <text class="header-title">信息录入</text>
+            <text class="header-during">(本周)</text>
+          </div>
+          <div class="detail-1">
+            <div class="detail-item-1">
+              <text class="detail-item-num">+22</text>
             </div>
-            <div class="detail-1">
-              <div class="detail-item-1">
-                <text class="detail-item-num">+22</text>
-              </div>
-              <div class="detail-item-1">
-                <text class="detail-item-num">+232</text>
-              </div>
-              <div class="detail-item-1">
-                <text class="detail-item-num">+221</text>
-              </div>
+            <div class="detail-item-1">
+              <text class="detail-item-num">+232</text>
             </div>
-            <div class="detail-2">
-              <text class="detail-item-text">项目信息</text>
-              <text class="detail-item-text">景区信息</text>
-              <text class="detail-item-text">商户信息</text>
+            <div class="detail-item-1">
+              <text class="detail-item-num">+221</text>
             </div>
+          </div>
+          <div class="detail-2">
+            <text class="detail-item-text">项目信息</text>
+            <text class="detail-item-text">景区信息</text>
+            <text class="detail-item-text">商户信息</text>
           </div>
         </div>
       </div>
-      <div class="toggle-add">
-        <div
-          class="toggle-add-item"
-          v-for="(item,index) in addRecords"
-          :key="index"
-        >
-          <image
-            :src="item.img"
-            class="toggle-add-item-icon"
-          />
-          <text class="toggle-add-item-text">{{item.text}}</text>
-        </div>
+    </div>
+    <div class="toggle-add">
+      <div
+        class="toggle-add-item"
+        v-for="(item,index) in addRecords"
+        :key="index"
+        @click="handleToggle(item.router)"
+      >
+        <image
+          :src="item.img"
+          class="toggle-add-item-icon"
+        />
+        <text class="toggle-add-item-text">{{item.text}}</text>
       </div>
-      <text class="msg">即时动态</text>
-      <div class="list">
-        <div class="list-item">
-          <text class="list-item-name">小二</text>
-          <text class="list-item-info">添加了成都欢乐谷乐园的景区信息</text>
-          <text class="list-item-time">4月14日</text>
-        </div>
-        <div class="list-item">
-          <text class="list-item-name">小三</text>
-          <text class="list-item-info">添加了成都欢乐谷乐园的景区信息</text>
-          <text class="list-item-time">4月14日</text>
-        </div>
-                <div class="list-item">
-          <text class="list-item-name">小四</text>
-          <text class="list-item-info">添加了成都欢乐谷乐园的景区信息</text>
-          <text class="list-item-time">4月14日</text>
-        </div>
+    </div>
+    <text class="msg">即时动态</text>
+    <div class="list">
+      <div class="list-item">
+        <text class="list-item-name">{{setHomeWebShow}}</text>
+        <text class="list-item-info">添加了成都欢乐谷乐园的景区信息</text>
+        <text class="list-item-time">4月14日</text>
       </div>
+      <div class="list-item">
+        <text class="list-item-name">小三</text>
+        <text class="list-item-info">添加了成都欢乐谷乐园的景区信息</text>
+        <text class="list-item-time">4月14日</text>
+      </div>
+      <div class="list-item">
+        <text class="list-item-name">小四</text>
+        <text class="list-item-info">添加了成都欢乐谷乐园的景区信息</text>
+        <text class="list-item-time">4月14日</text>
+      </div>
+    </div>
   </scroller>
 </template>
 <script>
@@ -70,16 +68,15 @@ import { getImg } from "@/tool.js";
 import Config from "@/config.js";
 
 export default {
+  props: ["setHomeWebShow"],
   data() {
     return {
       addRecords: Config.addRecords,
-      html: getImg("a.xml")
     };
   },
-
   methods: {
-    wxcButtonClicked() {
-      this.$router.push("/home");
+    handleToggle() {
+      this.setHomeWebShow(true);
     }
   }
 };

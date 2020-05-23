@@ -1711,15 +1711,15 @@ exports.default = {
   }],
   addRecords: [{
     img: (0, _tool.getImg)("project.png"),
-    router: "add_project",
+    router: 2,
     text: "项目"
   }, {
     img: (0, _tool.getImg)("scenic.png"),
-    router: "add_scenic",
+    router: 3,
     text: "景区"
   }, {
     img: (0, _tool.getImg)("merchant.png"),
-    router: "add_merchant",
+    router: 5,
     text: "商户"
   }]
 };
@@ -2152,6 +2152,10 @@ var _Notice = __webpack_require__(264);
 
 var _Notice2 = _interopRequireDefault(_Notice);
 
+var _HomeWeb = __webpack_require__(278);
+
+var _HomeWeb2 = _interopRequireDefault(_HomeWeb);
+
 var _weexUi = __webpack_require__(3);
 
 var _config = __webpack_require__(8);
@@ -2160,17 +2164,69 @@ var _config2 = _interopRequireDefault(_config);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
 exports.default = {
-  components: { Home: _Home2.default, Record: _Record2.default, Notice: _Notice2.default, WxcTabBar: _weexUi.WxcTabBar },
+  components: { Home: _Home2.default, Record: _Record2.default, Notice: _Notice2.default, HomeWeb: _HomeWeb2.default, WxcTabBar: _weexUi.WxcTabBar },
   data: function data() {
     return {
       tabTitles: _config2.default.tabTitles,
       tabStyles: _config2.default.tabStyles,
-      tabIconFontStyles: _config2.default.tabIconFontStyles
+      tabIconFontStyles: _config2.default.tabIconFontStyles,
+      homeWebShow: false
     };
   },
   created: function created() {
-    var tabPageHeight = _weexUi.Utils.env.getPageHeight();
+    var tabPageHeight = env.deviceHeight / env.deviceWidth * 750;
     var tabStyles = this.tabStyles;
 
     this.contentStyle = { height: tabPageHeight - tabStyles.height + "px" };
@@ -2180,43 +2236,12 @@ exports.default = {
     wxcTabBarCurrentTabSelected: function wxcTabBarCurrentTabSelected(e) {
       var index = e.page;
       // console.log(index);
+    },
+    setHomeWebShow: function setHomeWebShow(v) {
+      this.homeWebShow = v;
     }
   }
-}; //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+};
 
 /***/ }),
 /* 24 */
@@ -2273,13 +2298,17 @@ module.exports = {
     "left": 0,
     "right": 0
   },
+  "refresh": {
+    "textAlign": "center",
+    "fontSize": "20"
+  },
   "top-section": {
     "width": "750",
-    "height": "540"
+    "height": "500"
   },
   "gray-bg": {
     "width": "750",
-    "height": "350",
+    "height": "320",
     "backgroundColor": "#00bf8b",
     "borderBottomLeftRadius": "50",
     "borderBottomRightRadius": "50"
@@ -2295,7 +2324,7 @@ module.exports = {
   "week-count-wrapper": {
     "display": "flex",
     "alignItems": "center",
-    "transform": "translateY(-130px)"
+    "transform": "translateY(-150px)"
   },
   "week-count": {
     "width": "700",
@@ -2340,12 +2369,14 @@ module.exports = {
     "fontWeight": "800",
     "fontSize": "50",
     "color": "#333333",
-    "marginTop": "30"
+    "marginTop": "30",
+    "textAlign": "center"
   },
   "detail-item-text": {
     "fontWeight": "400",
     "fontSize": "30",
-    "color": "#b4b4b4"
+    "color": "#b4b4b4",
+    "textAlign": "center"
   },
   "detail-2": {
     "marginTop": "30",
@@ -2355,7 +2386,6 @@ module.exports = {
     "justifyContent": "space-around"
   },
   "toggle-add": {
-    "position": "sticky",
     "display": "flex",
     "justifyContent": "space-around",
     "flexDirection": "row"
@@ -2384,7 +2414,7 @@ module.exports = {
     "paddingLeft": "50"
   },
   "list-item": {
-    "height": "800"
+    "height": "180"
   },
   "list-item-name": {
     "fontSize": "40",
@@ -2480,8 +2510,15 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 exports.default = {
+  props: ["setHomeWebShow"],
   data: function data() {
     return {
       addRecords: _config2.default.addRecords,
@@ -2489,10 +2526,9 @@ exports.default = {
     };
   },
 
-
   methods: {
-    wxcButtonClicked: function wxcButtonClicked() {
-      this.$router.push("/home");
+    handleToggle: function handleToggle() {
+      this.setHomeWebShow(true);
     }
   }
 };
@@ -2509,7 +2545,12 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }, _vm._l((_vm.addRecords), function(item, index) {
     return _c('div', {
       key: index,
-      staticClass: ["toggle-add-item"]
+      staticClass: ["toggle-add-item"],
+      on: {
+        "click": function($event) {
+          _vm.handleToggle(item.router)
+        }
+      }
     }, [_c('image', {
       staticClass: ["toggle-add-item-icon"],
       attrs: {
@@ -2520,7 +2561,17 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     }, [_vm._v(_vm._s(item.text))])])
   })), _c('text', {
     staticClass: ["msg"]
-  }, [_vm._v("即时动态")]), _vm._m(1)])
+  }, [_vm._v("即时动态")]), _c('div', {
+    staticClass: ["list"]
+  }, [_c('div', {
+    staticClass: ["list-item"]
+  }, [_c('text', {
+    staticClass: ["list-item-name"]
+  }, [_vm._v(_vm._s(_vm.setHomeWebShow))]), _c('text', {
+    staticClass: ["list-item-info"]
+  }, [_vm._v("添加了成都欢乐谷乐园的景区信息")]), _c('text', {
+    staticClass: ["list-item-time"]
+  }, [_vm._v("4月14日")])]), _vm._m(1), _vm._m(2)])])
 },staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
     staticClass: ["top-section"]
@@ -2563,16 +2614,6 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }, [_vm._v("商户信息")])])])])])
 },function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
-    staticClass: ["list"]
-  }, [_c('div', {
-    staticClass: ["list-item"]
-  }, [_c('text', {
-    staticClass: ["list-item-name"]
-  }, [_vm._v("小二")]), _c('text', {
-    staticClass: ["list-item-info"]
-  }, [_vm._v("添加了成都欢乐谷乐园的景区信息")]), _c('text', {
-    staticClass: ["list-item-time"]
-  }, [_vm._v("4月14日")])]), _c('div', {
     staticClass: ["list-item"]
   }, [_c('text', {
     staticClass: ["list-item-name"]
@@ -2580,7 +2621,17 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: ["list-item-info"]
   }, [_vm._v("添加了成都欢乐谷乐园的景区信息")]), _c('text', {
     staticClass: ["list-item-time"]
-  }, [_vm._v("4月14日")])])])
+  }, [_vm._v("4月14日")])])
+},function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: ["list-item"]
+  }, [_c('text', {
+    staticClass: ["list-item-name"]
+  }, [_vm._v("小四")]), _c('text', {
+    staticClass: ["list-item-info"]
+  }, [_vm._v("添加了成都欢乐谷乐园的景区信息")]), _c('text', {
+    staticClass: ["list-item-time"]
+  }, [_vm._v("4月14日")])])
 }]}
 module.exports.render._withStripped = true
 
@@ -2679,6 +2730,86 @@ exports.default = {
     return {};
   }
 }; //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -20680,11 +20811,51 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: ["detail"]
   }, [_c('div', {
     staticClass: ["item"]
+  }, [_c('text', [_vm._v("+2")]), _c('text', [_vm._v("项目信息0000")])]), _c('div', {
+    staticClass: ["item"]
+  }, [_c('text', [_vm._v("+2")]), _c('text', [_vm._v("项目信息")])]), _c('div', {
+    staticClass: ["item"]
   }, [_c('text', [_vm._v("+2")]), _c('text', [_vm._v("项目信息")])]), _c('div', {
     staticClass: ["item"]
   }, [_c('text', [_vm._v("+2")]), _c('text', [_vm._v("项目信息")])]), _c('div', {
     staticClass: ["item"]
-  }, [_c('text', [_vm._v("+2")]), _c('text', [_vm._v("项目信息")])])])]), _vm._v("\nccccccccccccccccccccccccccccccccc\n ")])
+  }, [_c('text', [_vm._v("+2")]), _c('text', [_vm._v("项目信息")])]), _c('div', {
+    staticClass: ["item"]
+  }, [_c('text', [_vm._v("+2")]), _c('text', [_vm._v("项目信息")])]), _c('div', {
+    staticClass: ["item"]
+  }, [_c('text', [_vm._v("+2")]), _c('text', [_vm._v("项目信息")])]), _c('div', {
+    staticClass: ["item"]
+  }, [_c('text', [_vm._v("+2")]), _c('text', [_vm._v("项目信息")])]), _c('div', {
+    staticClass: ["item"]
+  }, [_c('text', [_vm._v("+2")]), _c('text', [_vm._v("项目信息")])]), _c('div', {
+    staticClass: ["item"]
+  }, [_c('text', [_vm._v("+2")]), _c('text', [_vm._v("项目信息")])]), _c('div', {
+    staticClass: ["item"]
+  }, [_c('text', [_vm._v("+2")]), _c('text', [_vm._v("项目信息")])]), _c('div', {
+    staticClass: ["item"]
+  }, [_c('text', [_vm._v("+2")]), _c('text', [_vm._v("项目信息")])]), _c('div', {
+    staticClass: ["item"]
+  }, [_c('text', [_vm._v("+2")]), _c('text', [_vm._v("项目信息")])]), _c('div', {
+    staticClass: ["item"]
+  }, [_c('text', [_vm._v("+2")]), _c('text', [_vm._v("项目信息")])]), _c('div', {
+    staticClass: ["item"]
+  }, [_c('text', [_vm._v("+2")]), _c('text', [_vm._v("项目信息")])]), _c('div', {
+    staticClass: ["item"]
+  }, [_c('text', [_vm._v("+2")]), _c('text', [_vm._v("项目信息")])]), _c('div', {
+    staticClass: ["item"]
+  }, [_c('text', [_vm._v("+2")]), _c('text', [_vm._v("项目信息")])]), _c('div', {
+    staticClass: ["item"]
+  }, [_c('text', [_vm._v("+2")]), _c('text', [_vm._v("项目信息")])]), _c('div', {
+    staticClass: ["item"]
+  }, [_c('text', [_vm._v("+2")]), _c('text', [_vm._v("项目信息")])]), _c('div', {
+    staticClass: ["item"]
+  }, [_c('text', [_vm._v("+2")]), _c('text', [_vm._v("项目信息")])]), _c('div', {
+    staticClass: ["item"]
+  }, [_c('text', [_vm._v("+2")]), _c('text', [_vm._v("项目信息")])]), _c('div', {
+    staticClass: ["item"]
+  }, [_c('text', [_vm._v("+2")]), _c('text', [_vm._v("项目信息")])]), _c('div', {
+    staticClass: ["item"]
+  }, [_c('text', [_vm._v("+2")]), _c('text', [_vm._v("项目信息")])])])]), _vm._v("\n  ccccccccccccccccccccccccccccccccc\n")])
 }]}
 module.exports.render._withStripped = true
 
@@ -20798,13 +20969,24 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }, [_c('div', {
     staticClass: ["item-container"],
     style: _vm.contentStyle
-  }, [_c('home')], 1), _c('div', {
+  }, [(!_vm.homeWebShow) ? _c('home', {
+    attrs: {
+      "setHomeWebShow": _vm.setHomeWebShow
+    }
+  }) : _vm._e(), (_vm.homeWebShow) ? _c('home-web', {
+    attrs: {
+      "setHomeWebShow": _vm.setHomeWebShow
+    }
+  }) : _vm._e()], 1), _c('div', {
     staticClass: ["item-container"],
     style: _vm.contentStyle
   }, [_c('record')], 1), _c('div', {
     staticClass: ["item-container"],
     style: _vm.contentStyle
-  }, [_c('notice')], 1)])
+  }, [_c('notice')], 1), _c('div', {
+    staticClass: ["item-container"],
+    style: _vm.contentStyle
+  }, [_vm._v("\n    吧vvvvvv\n  ")])])
 },staticRenderFns: []}
 module.exports.render._withStripped = true
 
@@ -21005,6 +21187,83 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   return _c('div', {
     staticClass: ["wrapper"]
   }, [(!_vm.logged) ? _c('login') : _vm._e(), (_vm.logged) ? _c('operate') : _vm._e()], 1)
+},staticRenderFns: []}
+module.exports.render._withStripped = true
+
+/***/ }),
+/* 274 */,
+/* 275 */,
+/* 276 */,
+/* 277 */,
+/* 278 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __vue_exports__, __vue_options__
+var __vue_styles__ = []
+
+/* styles */
+__vue_styles__.push(__webpack_require__(279)
+)
+
+/* script */
+__vue_exports__ = __webpack_require__(280)
+
+/* template */
+var __vue_template__ = __webpack_require__(281)
+__vue_options__ = __vue_exports__ = __vue_exports__ || {}
+if (
+  typeof __vue_exports__.default === "object" ||
+  typeof __vue_exports__.default === "function"
+) {
+if (Object.keys(__vue_exports__).some(function (key) { return key !== "default" && key !== "__esModule" })) {console.error("named exports are not supported in *.vue files.")}
+__vue_options__ = __vue_exports__ = __vue_exports__.default
+}
+if (typeof __vue_options__ === "function") {
+  __vue_options__ = __vue_options__.options
+}
+__vue_options__.__file = "/Users/liuhongrui/weex-app/src/components/HomeWeb.vue"
+__vue_options__.render = __vue_template__.render
+__vue_options__.staticRenderFns = __vue_template__.staticRenderFns
+__vue_options__._scopeId = "data-v-70872516"
+__vue_options__.style = __vue_options__.style || {}
+__vue_styles__.forEach(function (module) {
+  for (var name in module) {
+    __vue_options__.style[name] = module[name]
+  }
+})
+if (typeof __register_static_styles__ === "function") {
+  __register_static_styles__(__vue_options__._scopeId, __vue_styles__)
+}
+
+module.exports = __vue_exports__
+
+
+/***/ }),
+/* 279 */
+/***/ (function(module, exports) {
+
+module.exports = {}
+
+/***/ }),
+/* 280 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+//
+//
+//
+
+
+/***/ }),
+/* 281 */
+/***/ (function(module, exports) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('web', {
+    attrs: {
+      "src": "https://dist.rechengparty.com/"
+    }
+  })
 },staticRenderFns: []}
 module.exports.render._withStripped = true
 

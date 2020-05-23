@@ -46,7 +46,7 @@
     <text class="msg">即时动态</text>
     <div class="list">
       <div class="list-item">
-        <text class="list-item-name">{{setHomeWebShow}}</text>
+        <text class="list-item-name">小二</text>
         <text class="list-item-info">添加了成都欢乐谷乐园的景区信息</text>
         <text class="list-item-time">4月14日</text>
       </div>
@@ -71,12 +71,12 @@ export default {
   props: ["setHomeWebShow"],
   data() {
     return {
-      addRecords: Config.addRecords,
+      addRecords: Config.addRecords
     };
   },
   methods: {
-    handleToggle() {
-      this.setHomeWebShow(true);
+    handleToggle(item) {
+      this.setHomeWebShow(true, item);
     }
   }
 };

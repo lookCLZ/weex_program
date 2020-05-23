@@ -68,17 +68,17 @@ export default {
   addRecords: [
     {
       img: getImg("project.png"),
-      router: 2,
+      router: "project_input",
       text: "项目",
     },
     {
       img: getImg("scenic.png"),
-      router: 3,
+      router: "scenic_input",
       text: "景区",
     },
     {
       img: getImg("merchant.png"),
-      router: 5,
+      router: "merchant_input",
       text: "商户",
     },
   ]

@@ -19,6 +19,7 @@
       <home-web
         v-if="homeWebShow"
         :set-home-web-show="setHomeWebShow"
+        :home-web-info="homeWebInfo"
       />
     </div>
 
@@ -63,7 +64,8 @@ export default {
       tabTitles: Config.tabTitles,
       tabStyles: Config.tabStyles,
       tabIconFontStyles: Config.tabIconFontStyles,
-      homeWebShow: false
+      homeWebShow: false,
+      homeWebInfo:{},
     };
   },
   created() {
@@ -76,8 +78,13 @@ export default {
       const index = e.page;
       // console.log(index);
     },
-    setHomeWebShow(v) {
+    setHomeWebShow(v,info) {
       this.homeWebShow = v;
+      if (info===null){
+        this.homeWebInfo={}
+        return
+      }
+      this.homeWebInfo=info
     }
   }
 };

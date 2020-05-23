@@ -1969,7 +1969,7 @@ __vue_styles__.push(__webpack_require__(19)
 __vue_exports__ = __webpack_require__(20)
 
 /* template */
-var __vue_template__ = __webpack_require__(273)
+var __vue_template__ = __webpack_require__(277)
 __vue_options__ = __vue_exports__ = __vue_exports__ || {}
 if (
   typeof __vue_exports__.default === "object" ||
@@ -2024,7 +2024,7 @@ var _Operate = __webpack_require__(21);
 
 var _Operate2 = _interopRequireDefault(_Operate);
 
-var _Login = __webpack_require__(269);
+var _Login = __webpack_require__(273);
 
 var _Login2 = _interopRequireDefault(_Login);
 
@@ -2087,7 +2087,7 @@ __vue_styles__.push(__webpack_require__(22)
 __vue_exports__ = __webpack_require__(23)
 
 /* template */
-var __vue_template__ = __webpack_require__(268)
+var __vue_template__ = __webpack_require__(272)
 __vue_options__ = __vue_exports__ = __vue_exports__ || {}
 if (
   typeof __vue_exports__.default === "object" ||
@@ -2152,7 +2152,7 @@ var _Notice = __webpack_require__(264);
 
 var _Notice2 = _interopRequireDefault(_Notice);
 
-var _HomeWeb = __webpack_require__(278);
+var _HomeWeb = __webpack_require__(268);
 
 var _HomeWeb2 = _interopRequireDefault(_HomeWeb);
 
@@ -2521,8 +2521,7 @@ exports.default = {
   props: ["setHomeWebShow"],
   data: function data() {
     return {
-      addRecords: _config2.default.addRecords,
-      html: (0, _tool.getImg)("a.xml")
+      addRecords: _config2.default.addRecords
     };
   },
 
@@ -2561,17 +2560,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     }, [_vm._v(_vm._s(item.text))])])
   })), _c('text', {
     staticClass: ["msg"]
-  }, [_vm._v("即时动态")]), _c('div', {
-    staticClass: ["list"]
-  }, [_c('div', {
-    staticClass: ["list-item"]
-  }, [_c('text', {
-    staticClass: ["list-item-name"]
-  }, [_vm._v(_vm._s(_vm.setHomeWebShow))]), _c('text', {
-    staticClass: ["list-item-info"]
-  }, [_vm._v("添加了成都欢乐谷乐园的景区信息")]), _c('text', {
-    staticClass: ["list-item-time"]
-  }, [_vm._v("4月14日")])]), _vm._m(1), _vm._m(2)])])
+  }, [_vm._v("即时动态")]), _vm._m(1)])
 },staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
     staticClass: ["top-section"]
@@ -2614,6 +2603,16 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }, [_vm._v("商户信息")])])])])])
 },function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
+    staticClass: ["list"]
+  }, [_c('div', {
+    staticClass: ["list-item"]
+  }, [_c('text', {
+    staticClass: ["list-item-name"]
+  }, [_vm._v("小二")]), _c('text', {
+    staticClass: ["list-item-info"]
+  }, [_vm._v("添加了成都欢乐谷乐园的景区信息")]), _c('text', {
+    staticClass: ["list-item-time"]
+  }, [_vm._v("4月14日")])]), _c('div', {
     staticClass: ["list-item"]
   }, [_c('text', {
     staticClass: ["list-item-name"]
@@ -2621,9 +2620,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: ["list-item-info"]
   }, [_vm._v("添加了成都欢乐谷乐园的景区信息")]), _c('text', {
     staticClass: ["list-item-time"]
-  }, [_vm._v("4月14日")])])
-},function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', {
+  }, [_vm._v("4月14日")])]), _c('div', {
     staticClass: ["list-item"]
   }, [_c('text', {
     staticClass: ["list-item-name"]
@@ -2631,7 +2628,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: ["list-item-info"]
   }, [_vm._v("添加了成都欢乐谷乐园的景区信息")]), _c('text', {
     staticClass: ["list-item-time"]
-  }, [_vm._v("4月14日")])])
+  }, [_vm._v("4月14日")])])])
 }]}
 module.exports.render._withStripped = true
 
@@ -20952,6 +20949,116 @@ module.exports.render._withStripped = true
 
 /***/ }),
 /* 268 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __vue_exports__, __vue_options__
+var __vue_styles__ = []
+
+/* styles */
+__vue_styles__.push(__webpack_require__(269)
+)
+
+/* script */
+__vue_exports__ = __webpack_require__(270)
+
+/* template */
+var __vue_template__ = __webpack_require__(271)
+__vue_options__ = __vue_exports__ = __vue_exports__ || {}
+if (
+  typeof __vue_exports__.default === "object" ||
+  typeof __vue_exports__.default === "function"
+) {
+if (Object.keys(__vue_exports__).some(function (key) { return key !== "default" && key !== "__esModule" })) {console.error("named exports are not supported in *.vue files.")}
+__vue_options__ = __vue_exports__ = __vue_exports__.default
+}
+if (typeof __vue_options__ === "function") {
+  __vue_options__ = __vue_options__.options
+}
+__vue_options__.__file = "/Users/liuhongrui/weex-app/src/components/HomeWeb.vue"
+__vue_options__.render = __vue_template__.render
+__vue_options__.staticRenderFns = __vue_template__.staticRenderFns
+__vue_options__._scopeId = "data-v-70872516"
+__vue_options__.style = __vue_options__.style || {}
+__vue_styles__.forEach(function (module) {
+  for (var name in module) {
+    __vue_options__.style[name] = module[name]
+  }
+})
+if (typeof __register_static_styles__ === "function") {
+  __register_static_styles__(__vue_options__._scopeId, __vue_styles__)
+}
+
+module.exports = __vue_exports__
+
+
+/***/ }),
+/* 269 */
+/***/ (function(module, exports) {
+
+module.exports = {
+  "wrapper": {
+    "position": "absolute",
+    "top": "0",
+    "right": "0",
+    "bottom": "0",
+    "left": "0"
+  },
+  "title": {
+    "height": "80",
+    "fontSize": "40",
+    "textAlign": "left",
+    "backgroundColor": "#00bf8b",
+    "color": "#ffffff",
+    "lineHeight": "80"
+  },
+  "web": {
+    "width": "750",
+    "position": "absolute",
+    "top": "80",
+    "bottom": "0",
+    "right": "0",
+    "left": "0"
+  }
+}
+
+/***/ }),
+/* 270 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+/***/ }),
+/* 271 */
+/***/ (function(module, exports) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _vm._m(0)
+},staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: ["wrapper"]
+  }, [_c('text', {
+    staticClass: ["title"]
+  }, [_vm._v("<返回")]), _c('web', {
+    staticClass: ["web"],
+    attrs: {
+      "src": "https://dist.rechengparty.com/"
+    }
+  })])
+}]}
+module.exports.render._withStripped = true
+
+/***/ }),
+/* 272 */
 /***/ (function(module, exports) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -20991,21 +21098,21 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
 module.exports.render._withStripped = true
 
 /***/ }),
-/* 269 */
+/* 273 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __vue_exports__, __vue_options__
 var __vue_styles__ = []
 
 /* styles */
-__vue_styles__.push(__webpack_require__(270)
+__vue_styles__.push(__webpack_require__(274)
 )
 
 /* script */
-__vue_exports__ = __webpack_require__(271)
+__vue_exports__ = __webpack_require__(275)
 
 /* template */
-var __vue_template__ = __webpack_require__(272)
+var __vue_template__ = __webpack_require__(276)
 __vue_options__ = __vue_exports__ = __vue_exports__ || {}
 if (
   typeof __vue_exports__.default === "object" ||
@@ -21035,7 +21142,7 @@ module.exports = __vue_exports__
 
 
 /***/ }),
-/* 270 */
+/* 274 */
 /***/ (function(module, exports) {
 
 module.exports = {
@@ -21072,7 +21179,7 @@ module.exports = {
 }
 
 /***/ }),
-/* 271 */
+/* 275 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -21142,7 +21249,7 @@ exports.default = {
 };
 
 /***/ }),
-/* 272 */
+/* 276 */
 /***/ (function(module, exports) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -21180,90 +21287,13 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
 module.exports.render._withStripped = true
 
 /***/ }),
-/* 273 */
+/* 277 */
 /***/ (function(module, exports) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
     staticClass: ["wrapper"]
   }, [(!_vm.logged) ? _c('login') : _vm._e(), (_vm.logged) ? _c('operate') : _vm._e()], 1)
-},staticRenderFns: []}
-module.exports.render._withStripped = true
-
-/***/ }),
-/* 274 */,
-/* 275 */,
-/* 276 */,
-/* 277 */,
-/* 278 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var __vue_exports__, __vue_options__
-var __vue_styles__ = []
-
-/* styles */
-__vue_styles__.push(__webpack_require__(279)
-)
-
-/* script */
-__vue_exports__ = __webpack_require__(280)
-
-/* template */
-var __vue_template__ = __webpack_require__(281)
-__vue_options__ = __vue_exports__ = __vue_exports__ || {}
-if (
-  typeof __vue_exports__.default === "object" ||
-  typeof __vue_exports__.default === "function"
-) {
-if (Object.keys(__vue_exports__).some(function (key) { return key !== "default" && key !== "__esModule" })) {console.error("named exports are not supported in *.vue files.")}
-__vue_options__ = __vue_exports__ = __vue_exports__.default
-}
-if (typeof __vue_options__ === "function") {
-  __vue_options__ = __vue_options__.options
-}
-__vue_options__.__file = "/Users/liuhongrui/weex-app/src/components/HomeWeb.vue"
-__vue_options__.render = __vue_template__.render
-__vue_options__.staticRenderFns = __vue_template__.staticRenderFns
-__vue_options__._scopeId = "data-v-70872516"
-__vue_options__.style = __vue_options__.style || {}
-__vue_styles__.forEach(function (module) {
-  for (var name in module) {
-    __vue_options__.style[name] = module[name]
-  }
-})
-if (typeof __register_static_styles__ === "function") {
-  __register_static_styles__(__vue_options__._scopeId, __vue_styles__)
-}
-
-module.exports = __vue_exports__
-
-
-/***/ }),
-/* 279 */
-/***/ (function(module, exports) {
-
-module.exports = {}
-
-/***/ }),
-/* 280 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-//
-//
-//
-
-
-/***/ }),
-/* 281 */
-/***/ (function(module, exports) {
-
-module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('web', {
-    attrs: {
-      "src": "https://dist.rechengparty.com/"
-    }
-  })
 },staticRenderFns: []}
 module.exports.render._withStripped = true
 

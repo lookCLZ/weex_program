@@ -1,44 +1,52 @@
 <template>
-  <div class="wrapper">
-    <wxc-tab-bar
-      ref="wxc-tab-bar"
-      :tab-titles="tabTitles"
-      :tab-styles="tabStyles"
-      title-type="icon"
-      @wxcTabBarCurrentTabSelected="wxcTabBarCurrentTabSelected"
+  <wxc-tab-bar
+    ref="wxc-tab-bar"
+    :tab-titles="tabTitles"
+    :tab-styles="tabStyles"
+    :tab-icon-font-styles="tabIconFontStyles"
+    title-type="icon"
+    @wxcTabBarCurrentTabSelected="wxcTabBarCurrentTabSelected"
+  >
+    <!-- 第一个页面内容-->
+    <div
+      class="item-container"
+      :style="contentStyle"
     >
-      <!-- 第一个页面内容-->
-      <div
-        class="item-container"
-        :style="contentStyle"
-      ><text>首页</text></div>
+      <home />
+    </div>
 
-      <!-- 第二个页面内容-->
-      <div
-        class="item-container"
-        :style="contentStyle"
-      ><text>特别推荐</text></div>
+    <!-- 第二个页面内容-->
+    <div
+      class="item-container"
+      :style="contentStyle"
+    >
+      <record />
+    </div>
 
-      <!-- 第三个页面内容-->
-      <div
-        class="item-container"
-        :style="contentStyle"
-      ><text>消息中心</text></div>
-    </wxc-tab-bar>
-  </div>
+    <!-- 第三个页面内容-->
+    <div
+      class="item-container"
+      :style="contentStyle"
+    >
+      <notice />
+    </div>
+  </wxc-tab-bar>
 </template>
 
 <script>
+import Home from "@/components/Home";
+import Record from "@/components/Record";
+import Notice from "@/components/Notice";
 import { WxcTabBar, Utils } from "weex-ui";
 import Config from "@/config.js";
-const storage = weex.requireModule("storage");
 
 export default {
-  components: { WxcTabBar },
+  components: { Home, Record, Notice, WxcTabBar },
   data() {
     return {
       tabTitles: Config.tabTitles,
-      tabStyles: Config.tabStyles
+      tabStyles: Config.tabStyles,
+      tabIconFontStyles: Config.tabIconFontStyles
     };
   },
   created() {
@@ -50,12 +58,10 @@ export default {
     wxcTabBarCurrentTabSelected(e) {
       const index = e.page;
       // console.log(index);
-    },
-
+    }
   }
 };
 </script>
-
 <style scoped>
 .item-container {
   width: 750px;

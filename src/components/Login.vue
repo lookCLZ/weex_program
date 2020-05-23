@@ -45,7 +45,7 @@ export default {
         if (res.result == "success") {
           // 数据缓存成功后的操作
           modal.toast({
-            message: res.result,
+            message: "账号验证通过",
             duration: 2
           });
         }

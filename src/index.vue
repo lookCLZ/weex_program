@@ -20,7 +20,7 @@ export default {
   },
   data() {
     return {
-      logged: false
+      logged: true
     };
   },
   mounted() {
@@ -28,17 +28,15 @@ export default {
   },
   methods: {
     listenStorage() {
-      setInterval(() => {
-        storage.getItem("login", res => {
-          modal.toast({
-            message: res.result,
-            duration: 2
-          });
-          if (res.result == "success") {
-            this.logged = true;
-          }
-        });
-      }, 2000);
+      let that = this
+       that.logged = true;
+      // setInterval(() => {
+      //   storage.getItem("login", res => {
+      //     if (res.result == "success") {
+      //       that.logged = true;
+      //     }
+      //   });
+      // }, 2000);
     }
   }
 };

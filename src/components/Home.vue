@@ -43,10 +43,17 @@
       </div>
     </div>
     <text class="msg">即时动态</text>
-    <web
-      class="web"
-      :src="html"
-    ></web>
+    <list>
+      <cell>
+        <text>小二</text>
+      </cell>
+      <cell>
+        <text>小二</text>
+      </cell>
+      <cell>
+        <text>小二</text>
+      </cell>
+    </list>
   </scroller>
 </template>
 <script>
@@ -113,6 +120,7 @@ export default {
   margin: 40px 0 0 0;
 }
 .header-title {
+  margin-left: 25px;
   font-size: 40px;
   color: #333333;
   font-weight: 700;
@@ -168,6 +176,6 @@ export default {
   font-size: 40px;
   color: #333333;
   font-weight: 700;
-  margin:50px;
+  margin: 50px;
 }
 </style>

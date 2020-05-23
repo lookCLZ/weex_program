@@ -9,6 +9,86 @@
       <div class="detail">
         <div class="item">
           <text>+2</text>
+          <text>项目信息0000</text>
+        </div>
+        <div class="item">
+          <text>+2</text>
+          <text>项目信息</text>
+        </div>
+        <div class="item">
+          <text>+2</text>
+          <text>项目信息</text>
+        </div>
+        <div class="item">
+          <text>+2</text>
+          <text>项目信息</text>
+        </div>
+        <div class="item">
+          <text>+2</text>
+          <text>项目信息</text>
+        </div>
+        <div class="item">
+          <text>+2</text>
+          <text>项目信息</text>
+        </div>
+        <div class="item">
+          <text>+2</text>
+          <text>项目信息</text>
+        </div>
+        <div class="item">
+          <text>+2</text>
+          <text>项目信息</text>
+        </div>
+        <div class="item">
+          <text>+2</text>
+          <text>项目信息</text>
+        </div>
+        <div class="item">
+          <text>+2</text>
+          <text>项目信息</text>
+        </div>
+        <div class="item">
+          <text>+2</text>
+          <text>项目信息</text>
+        </div>
+        <div class="item">
+          <text>+2</text>
+          <text>项目信息</text>
+        </div>
+        <div class="item">
+          <text>+2</text>
+          <text>项目信息</text>
+        </div>
+        <div class="item">
+          <text>+2</text>
+          <text>项目信息</text>
+        </div>
+        <div class="item">
+          <text>+2</text>
+          <text>项目信息</text>
+        </div>
+        <div class="item">
+          <text>+2</text>
+          <text>项目信息</text>
+        </div>
+        <div class="item">
+          <text>+2</text>
+          <text>项目信息</text>
+        </div>
+        <div class="item">
+          <text>+2</text>
+          <text>项目信息</text>
+        </div>
+        <div class="item">
+          <text>+2</text>
+          <text>项目信息</text>
+        </div>
+        <div class="item">
+          <text>+2</text>
+          <text>项目信息</text>
+        </div>
+        <div class="item">
+          <text>+2</text>
           <text>项目信息</text>
         </div>
         <div class="item">
@@ -21,7 +101,7 @@
         </div>
       </div>
     </div>
- ccccccccccccccccccccccccccccccccc
+    ccccccccccccccccccccccccccccccccc
   </div>
 </template>
 <script>
@@ -31,8 +111,7 @@ export default {
   components: { WxcButton },
 
   data() {
-    return {
-    };
+    return {};
   }
 };
 </script>

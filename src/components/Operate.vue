@@ -50,9 +50,9 @@ export default {
     };
   },
   created() {
-    const tabPageHeight = Utils.env.getPageHeight();
+    const tabPageHeight = env.deviceHeight / env.deviceWidth * 750;
     const { tabStyles } = this;
-    this.contentStyle = { height: tabPageHeight - tabStyles.height + "px" };
+   this.contentStyle = { height: tabPageHeight - tabStyles.height + "px" };
   },
   methods: {
     wxcTabBarCurrentTabSelected(e) {

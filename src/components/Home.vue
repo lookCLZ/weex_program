@@ -85,12 +85,12 @@ export default {
 }
 .top-section {
   width: 750px;
-  height: 540px;
+  height: 500px;
   overflow: visible;
 }
 .gray-bg {
   width: 750px;
-  height: 350px;
+  height: 320px;
   background-color: #00bf8b;
   border-bottom-left-radius: 50px;
   border-bottom-right-radius: 50px;
@@ -103,7 +103,7 @@ export default {
 .week-count-wrapper {
   display: flex;
   align-items: center;
-  transform: translateY(-130px);
+  transform: translateY(-150px);
 }
 .week-count {
   width: 700px;
@@ -158,7 +158,6 @@ export default {
   justify-content: space-around;
 }
 .toggle-add {
-  position: sticky;
   display: flex;
   justify-content: space-around;
   flex-direction: row;
@@ -184,7 +183,7 @@ export default {
   padding-left: 50px;
 }
 .list-item {
-  height:800px;
+  height:180px;
 }
 .list-item-name {
   font-size: 40px;

@@ -1,50 +1,42 @@
 <template>
   <div class="wrapper">
-      <router-view />
-    <div
-      v-if="showBottomTabs"
-      class="bottom-tab"
-    >
-      <div
-        class="item"
-        v-for="(item,index) in bottomTabs"
-        :key="index"
-      >
-        <image
-          :src="router == item.router ? item.activeImg : item.img"
-          class="icon-tab"
-          @click="$router.push(item.router)"
-        />
-        <text class="tab-text">{{item.text}}</text></div>
-    </div>
+    <login v-if="!logged" />
+    <Operate v-else />
   </div>
 </template>
 
 <script>
-import { WxcTabBar } from "weex-ui";
-import Config from "@/config.js";
+import Operate from "@/components/Operate";
+import Login from "@/components/Login";
+import { WxcTabBar, Utils } from "weex-ui";
+import { setInterval } from "@/tool.js";
 export default {
   name: "App",
-  components: { WxcTabBar },
+  components: {
+    Operate,
+    Login
+  },
   data() {
     return {
-      bottomTabs: Config.bottomTabs,
-      router: "/"
+      logged: false
     };
   },
-  computed: {
-    showBottomTabs() {
-      return Config.bottomTabsShowRouter.includes(this.router);
-    }
-  },
-  watch: {
-    $route() {
-      this.router = this.$route.path;
-    }
+  mounted() {
+    this.listenStorage();
   },
   methods: {
-    iconTab(item) {
-      return this.$route.path == item.router ? item.activeImg : item.img;
+    listenStorage() {
+      setInterval(() => {
+        storage.getItem("login", res => {
+          modal.toast({
+            message: res.result,
+            duration: 2
+          });
+          if (res.result == "success") {
+            this.logged = true;
+          }
+        });
+      }, 2000);
     }
   }
 };
@@ -54,25 +46,5 @@ export default {
 .wrapper {
   justify-content: center;
   align-items: center;
-}
-.bottom-tab {
-  position: absolute;
-  bottom: 0;
-  width: 750px;
-  height: 140px;
-  display: flex;
-  padding: 20px 10px;
-  flex-direction: row;
-  justify-content: space-around;
-  box-shadow: 0px 10px 40px #ccc;
-}
-.icon-tab {
-  width: 60px;
-  height: 60px;
-}
-.tab-text {
-  margin-top: 10px;
-  font-size: 30px;
-  color: #00bf8b;
 }
 </style>

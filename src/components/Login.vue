@@ -27,6 +27,8 @@
 <script>
 import { WxcButton } from "weex-ui";
 import { getImg } from "@/tool.js";
+const storage = weex.requireModule("storage");
+const modal = weex.requireModule("modal");
 
 export default {
   components: { WxcButton },
@@ -39,14 +41,22 @@ export default {
 
   methods: {
     wxcButtonClicked() {
-      this.$router.push("/home");
+      storage.setItem("login", "success", res => {
+        if (res.result == "success") {
+          // 数据缓存成功后的操作
+          modal.toast({
+            message: res.result,
+            duration: 2
+          });
+        }
+      });
     }
   }
 };
 </script>
 <style scoped>
 .login-page {
-  display:flex;
+  display: flex;
   align-items: center;
   justify-content: center;
 }
@@ -55,23 +65,22 @@ export default {
   height: 150px;
   margin: 0 auto 40px;
 }
-.form{
-  display:flex;
+.form {
+  display: flex;
   align-items: center;
 }
 .input {
   width: 750px;
   height: 80px;
-  font-size: 50px;
+  font-size: 40px;
   margin: 20px auto;
   padding-left: 40px;
   border-bottom: 2px solid rgb(255, 80, 0);
   outline: none;
-  placeholder-color:rgb(255, 80, 0);
+  placeholder-color: rgb(255, 80, 0);
 }
 
 .button {
   margin: 80px auto 0;
 }
-
 </style>

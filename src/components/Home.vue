@@ -1,5 +1,5 @@
 <template>
-  <div class="home-page">
+  <scroller class="home-page">
     <div class="top-section">
       <div class="gray-bg">
         <text class="username">代先生</text>
@@ -42,8 +42,12 @@
         <text class="toggle-add-item-text">{{item.text}}</text>
       </div>
     </div>
-    <web class="web" src="https://www.taobao.com/"></web>
-  </div>
+    <text class="msg">即时动态</text>
+    <web
+      class="web"
+      :src="html"
+    ></web>
+  </scroller>
 </template>
 <script>
 import { getImg } from "@/tool.js";
@@ -52,7 +56,8 @@ import Config from "@/config.js";
 export default {
   data() {
     return {
-      addRecords: Config.addRecords
+      addRecords: Config.addRecords,
+      html: getImg("a.xml")
     };
   },
 
@@ -102,7 +107,7 @@ export default {
 }
 .header {
   display: flex;
-  justify-content: center;
+  justify-content: start;
   flex-direction: row;
   align-items: center;
   margin: 40px 0 0 0;
@@ -143,23 +148,26 @@ export default {
   flex-direction: row;
   justify-content: space-around;
 }
-.toggle-add{
-  display:flex;
+.toggle-add {
+  position: sticky;
+  display: flex;
   justify-content: space-around;
   flex-direction: row;
 }
-.toggle-add-item-icon{
-  width:120px;
-  height:120px;
+.toggle-add-item-icon {
+  width: 120px;
+  height: 120px;
 }
-.toggle-add-item-text{
-  font-size:30px;
-  color:#333;
-  text-align:center;
-  margin-top:10px;
+.toggle-add-item-text {
+  font-size: 30px;
+  color: #333;
+  text-align: center;
+  margin-top: 10px;
 }
-.web{
-  width:300px;
-  height:300px;
+.msg {
+  font-size: 40px;
+  color: #333333;
+  font-weight: 700;
+  margin:50px;
 }
 </style>

@@ -1,4 +1,4 @@
-export const getImg=function(img_name) {// 获取图片在三端上不同的路径
+const getImg=function(img_name) {// 获取图片在三端上不同的路径
     let platform = weex.config.env.platform
     let img_path = ''
     if (platform == 'Web') {
@@ -12,6 +12,22 @@ export const getImg=function(img_name) {// 获取图片在三端上不同的路�
     return img_path
 }
 
+const setInterval=function(func, wait, arg){
+    var self = this
+    var inter = function(){
+      if(self.timeRemain != arguments[0][0]){
+        func.apply(null, arguments)
+        setTimeout(inter, wait, arg)
+      }
+      else {
+        func.apply(null, arguments)
+        arguments[0][1] && typeof arguments[0][1] == 'function' && arguments[0][1].call(null)
+      }
+    }
+    setTimeout(inter, wait, arg)
+  }
+
 export default{ 
-	getImg:getImg,
+    getImg:getImg,
+    setInterval:setInterval,
 }

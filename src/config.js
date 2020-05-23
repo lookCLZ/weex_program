@@ -70,16 +70,19 @@ export default {
       img: getImg("project.png"),
       router: "project_input",
       text: "项目",
+      title: "新增项目"
     },
     {
       img: getImg("scenic.png"),
       router: "scenic_input",
       text: "景区",
+      title: "新增景区"
     },
     {
       img: getImg("merchant.png"),
       router: "merchant_input",
       text: "商户",
+      title: "新增商户"
     },
   ]
 }

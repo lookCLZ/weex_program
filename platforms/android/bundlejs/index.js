@@ -1711,16 +1711,19 @@ exports.default = {
   }],
   addRecords: [{
     img: (0, _tool.getImg)("project.png"),
-    router: 2,
-    text: "项目"
+    router: "project_input",
+    text: "项目",
+    title: "新增项目"
   }, {
     img: (0, _tool.getImg)("scenic.png"),
-    router: 3,
-    text: "景区"
+    router: "scenic_input",
+    text: "景区",
+    title: "新增景区"
   }, {
     img: (0, _tool.getImg)("merchant.png"),
-    router: 5,
-    text: "商户"
+    router: "merchant_input",
+    text: "商户",
+    title: "新增商户"
   }]
 };
 
@@ -2214,6 +2217,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 //
 //
 //
+//
 
 exports.default = {
   components: { Home: _Home2.default, Record: _Record2.default, Notice: _Notice2.default, HomeWeb: _HomeWeb2.default, WxcTabBar: _weexUi.WxcTabBar },
@@ -2222,7 +2226,8 @@ exports.default = {
       tabTitles: _config2.default.tabTitles,
       tabStyles: _config2.default.tabStyles,
       tabIconFontStyles: _config2.default.tabIconFontStyles,
-      homeWebShow: false
+      homeWebShow: false,
+      homeWebInfo: {}
     };
   },
   created: function created() {
@@ -2237,8 +2242,13 @@ exports.default = {
       var index = e.page;
       // console.log(index);
     },
-    setHomeWebShow: function setHomeWebShow(v) {
+    setHomeWebShow: function setHomeWebShow(v, info) {
       this.homeWebShow = v;
+      if (info === null) {
+        this.homeWebInfo = {};
+        return;
+      }
+      this.homeWebInfo = info;
     }
   }
 };
@@ -2526,8 +2536,8 @@ exports.default = {
   },
 
   methods: {
-    handleToggle: function handleToggle() {
-      this.setHomeWebShow(true);
+    handleToggle: function handleToggle(item) {
+      this.setHomeWebShow(true, item);
     }
   }
 };
@@ -21003,19 +21013,29 @@ module.exports = {
     "bottom": "0",
     "left": "0"
   },
+  "header": {
+    "display": "flex",
+    "justifyContent": "space-around",
+    "flexDirection": "row",
+    "backgroundColor": "#ffffff"
+  },
   "title": {
     "height": "80",
     "fontSize": "40",
     "textAlign": "left",
-    "backgroundColor": "#00bf8b",
-    "color": "#ffffff",
+    "color": "#00bf8b",
+    "lineHeight": "80"
+  },
+  "back": {
+    "color": "#00bf8b",
+    "fontSize": "40",
     "lineHeight": "80"
   },
   "web": {
     "width": "750",
     "position": "absolute",
     "top": "80",
-    "bottom": "0",
+    "bottom": "300",
     "right": "0",
     "left": "0"
   }
@@ -21026,35 +21046,58 @@ module.exports = {
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _weexUi = __webpack_require__(3);
+
+exports.default = {
+  props: ["homeWebInfo", "setHomeWebShow"],
+  components: { WxcMinibar: _weexUi.WxcMinibar },
+  mounted: function mounted() {},
+
+  methods: {
+    goBack: function goBack() {
+      this.setHomeWebShow(false, null);
+    }
+  }
+}; //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /***/ }),
 /* 271 */
 /***/ (function(module, exports) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _vm._m(0)
-},staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
     staticClass: ["wrapper"]
-  }, [_c('text', {
-    staticClass: ["title"]
-  }, [_vm._v("<返回")]), _c('web', {
-    staticClass: ["web"],
+  }, [_c('wxc-minibar', {
     attrs: {
-      "src": "https://dist.rechengparty.com/"
+      "title": _vm.homeWebInfo.title,
+      "backgroundColor": "#ffffff",
+      "textColor": "#00bf8b"
+    },
+    on: {
+      "wxcMinibarLeftButtonClicked": _vm.goBack
     }
-  })])
-}]}
+  }), _vm._v("\n  " + _vm._s(_vm.homeWebInfo) + "\n  ")], 1)
+},staticRenderFns: []}
 module.exports.render._withStripped = true
 
 /***/ }),
@@ -21082,7 +21125,8 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     }
   }) : _vm._e(), (_vm.homeWebShow) ? _c('home-web', {
     attrs: {
-      "setHomeWebShow": _vm.setHomeWebShow
+      "setHomeWebShow": _vm.setHomeWebShow,
+      "homeWebInfo": _vm.homeWebInfo
     }
   }) : _vm._e()], 1), _c('div', {
     staticClass: ["item-container"],

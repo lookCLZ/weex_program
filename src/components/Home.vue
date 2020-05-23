@@ -34,7 +34,7 @@
         class="toggle-add-item"
         v-for="(item,index) in addRecords"
         :key="index"
-        @click="handleToggle(item.router)"
+        @click="handleToggle(item)"
       >
         <image
           :src="item.img"
@@ -83,10 +83,11 @@ export default {
 </script>
 <style scoped>
 .home-page {
-  position: absolute;
+  /* position: absolute;
   top: 0;
   left: 0;
   right: 0;
+  bottom: 0; */
 }
 .refresh {
   text-align: center;

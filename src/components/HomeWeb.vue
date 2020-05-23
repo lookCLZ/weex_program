@@ -1,9 +1,11 @@
 <template>
   <div class="wrapper">
-    <div class="header">
-      <text class="back" @click="goBack">返回</text>
-      <text class="title">{{homeWebInfo.text}}录入</text>
-    </div>
+    <wxc-minibar
+      :title="homeWebInfo.title"
+      background-color="#ffffff"
+      text-color="#00bf8b"
+      @wxcMinibarLeftButtonClicked="goBack"
+    ></wxc-minibar>
     <web
       class="web"
       src="https://dist.rechengparty.com/"
@@ -11,14 +13,20 @@
   </div>
 </template>
 <script>
+import { WxcMinibar } from 'weex-ui';
+
 export default {
-  props:["homeWebInfo","setHomeWebShow"],
-  methods:{
-    goBack(){
-      this.setHomeWebShow(false,null)
+  props: ["homeWebInfo", "setHomeWebShow"],
+  components: { WxcMinibar },
+  mounted(){
+
+  },
+  methods: {
+    goBack() {
+      this.setHomeWebShow(false, null);
     }
   }
-}
+};
 </script>
 
 <style scoped>
@@ -44,14 +52,14 @@ export default {
 }
 .back {
   color: #00bf8b;
-  font-size:40px;
+  font-size: 40px;
   line-height: 80px;
 }
 .web {
   width: 750px;
   position: absolute;
   top: 80px;
-  bottom: 220px;
+  bottom: 0px;
   right: 0px;
   left: 0px;
 }

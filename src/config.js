@@ -4,15 +4,15 @@ export default {
     {
       icon: getImg("home.png"),
       activeIcon: getImg("home_active.png"),
-      title: "首页",
+      // title: "首页",
     }, {
       icon: getImg("record.png"),
       activeIcon: getImg("record_active.png"),
-      title: "记录",
+      // title: "记录",
     }, {
       icon: getImg("notice.png"),
       activeIcon: getImg("notice_active.png"),
-      title: "公告",
+      // title: "公告",
     }
   ],
   tabStyles: {
@@ -21,14 +21,13 @@ export default {
     activeTitleColor: '#3D3D3D',
     activeBgColor: '#FFFFFF',
     isActiveTitleBold: true,
-    iconWidth: 70,
-    iconHeight: 70,
+    iconWidth: 50,
+    iconHeight: 50,
     width: 160,
-    height: 140,
+    height: 120,
     fontSize: 24,
     textPaddingLeft: 10,
     textPaddingRight: 10,
-    textPaddingBottom: 1000
   },
   tabIconFontStyles: {
     bgColor: '#FFFFFF',

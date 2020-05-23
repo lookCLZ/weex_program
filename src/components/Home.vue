@@ -43,17 +43,18 @@
       </div>
     </div>
     <text class="msg">即时动态</text>
-    <list>
-      <cell>
-        <text>小二</text>
-      </cell>
-      <cell>
-        <text>小二</text>
-      </cell>
-      <cell>
-        <text>小二</text>
-      </cell>
-    </list>
+    <div class="list">
+      <div class="list-item">
+        <text class="list-item-name">小二</text>
+        <text class="list-item-info">添加了成都欢乐谷乐园的景区信息</text>
+        <text class="list-item-time">4月14日</text>
+      </div>
+      <div class="list-item">
+        <text class="list-item-name">小三</text>
+        <text class="list-item-info">添加了成都欢乐谷乐园的景区信息</text>
+        <text class="list-item-time">4月14日</text>
+      </div>
+    </div>
   </scroller>
 </template>
 <script>
@@ -177,5 +178,26 @@ export default {
   color: #333333;
   font-weight: 700;
   margin: 50px;
+}
+.list {
+  width: 750px;
+  padding-left: 50px;
+}
+.list-item {
+  height:800px;
+}
+.list-item-name {
+  font-size: 40px;
+  font-weight: 800;
+}
+.list-item-info {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  font-size: 30px;
+  color: #666666;
+}
+.list-item-time {
+  font-size: 30px;
+  color: #b4b4b4;
 }
 </style>

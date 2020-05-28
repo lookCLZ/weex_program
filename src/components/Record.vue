@@ -4,7 +4,6 @@
       <text class="title-banner">记录</text>
       <div class="tab-title">
         <text
-          :class="item.key===active?'tab-title-item-active tab-title-item':'tab-title-item'"
           v-for="(item,index) in recordTab"
           :key="index"
           @click="handleToggle(item)"
@@ -25,6 +24,13 @@ export default {
   methods: {
     handleToggle(item) {
       this.active = item.key;
+    },
+    handleToggleStyle(item) {
+      if (item.key === this.active) {
+        return "tab-title-item-active tab-title-item";
+      } else {
+        return "tab-title-item";
+      }
     }
   }
 };

@@ -1321,7 +1321,7 @@ var _wxcButton = __webpack_require__(43);
 
 var _wxcButton2 = _interopRequireDefault(_wxcButton);
 
-var _wxcCell = __webpack_require__(6);
+var _wxcCell = __webpack_require__(7);
 
 var _wxcCell2 = _interopRequireDefault(_wxcCell);
 
@@ -1582,72 +1582,6 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _index = __webpack_require__(49);
-
-Object.defineProperty(exports, 'default', {
-  enumerable: true,
-  get: function get() {
-    return _interopRequireDefault(_index).default;
-  }
-});
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-/***/ }),
-/* 7 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var __vue_exports__, __vue_options__
-var __vue_styles__ = []
-
-/* styles */
-__vue_styles__.push(__webpack_require__(212)
-)
-
-/* script */
-__vue_exports__ = __webpack_require__(213)
-
-/* template */
-var __vue_template__ = __webpack_require__(214)
-__vue_options__ = __vue_exports__ = __vue_exports__ || {}
-if (
-  typeof __vue_exports__.default === "object" ||
-  typeof __vue_exports__.default === "function"
-) {
-if (Object.keys(__vue_exports__).some(function (key) { return key !== "default" && key !== "__esModule" })) {console.error("named exports are not supported in *.vue files.")}
-__vue_options__ = __vue_exports__ = __vue_exports__.default
-}
-if (typeof __vue_options__ === "function") {
-  __vue_options__ = __vue_options__.options
-}
-__vue_options__.__file = "/Users/liuhongrui/weex-app/node_modules/weex-ui/packages/wxc-rich-text/wxc-rich-text-text.vue"
-__vue_options__.render = __vue_template__.render
-__vue_options__.staticRenderFns = __vue_template__.staticRenderFns
-__vue_options__._scopeId = "data-v-11930d9f"
-__vue_options__.style = __vue_options__.style || {}
-__vue_styles__.forEach(function (module) {
-  for (var name in module) {
-    __vue_options__.style[name] = module[name]
-  }
-})
-if (typeof __register_static_styles__ === "function") {
-  __register_static_styles__(__vue_options__._scopeId, __vue_styles__)
-}
-
-module.exports = __vue_exports__
-
-
-/***/ }),
-/* 8 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
 var _tool = __webpack_require__(5);
 
 exports.default = {
@@ -1736,6 +1670,72 @@ exports.default = {
     key: "merchant"
   }]
 };
+
+/***/ }),
+/* 7 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _index = __webpack_require__(49);
+
+Object.defineProperty(exports, 'default', {
+  enumerable: true,
+  get: function get() {
+    return _interopRequireDefault(_index).default;
+  }
+});
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+/***/ }),
+/* 8 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __vue_exports__, __vue_options__
+var __vue_styles__ = []
+
+/* styles */
+__vue_styles__.push(__webpack_require__(212)
+)
+
+/* script */
+__vue_exports__ = __webpack_require__(213)
+
+/* template */
+var __vue_template__ = __webpack_require__(214)
+__vue_options__ = __vue_exports__ = __vue_exports__ || {}
+if (
+  typeof __vue_exports__.default === "object" ||
+  typeof __vue_exports__.default === "function"
+) {
+if (Object.keys(__vue_exports__).some(function (key) { return key !== "default" && key !== "__esModule" })) {console.error("named exports are not supported in *.vue files.")}
+__vue_options__ = __vue_exports__ = __vue_exports__.default
+}
+if (typeof __vue_options__ === "function") {
+  __vue_options__ = __vue_options__.options
+}
+__vue_options__.__file = "/Users/liuhongrui/weex-app/node_modules/weex-ui/packages/wxc-rich-text/wxc-rich-text-text.vue"
+__vue_options__.render = __vue_template__.render
+__vue_options__.staticRenderFns = __vue_template__.staticRenderFns
+__vue_options__._scopeId = "data-v-11930d9f"
+__vue_options__.style = __vue_options__.style || {}
+__vue_styles__.forEach(function (module) {
+  for (var name in module) {
+    __vue_options__.style[name] = module[name]
+  }
+})
+if (typeof __register_static_styles__ === "function") {
+  __register_static_styles__(__vue_options__._scopeId, __vue_styles__)
+}
+
+module.exports = __vue_exports__
+
 
 /***/ }),
 /* 9 */
@@ -2171,7 +2171,7 @@ var _HomeWeb2 = _interopRequireDefault(_HomeWeb);
 
 var _weexUi = __webpack_require__(3);
 
-var _config = __webpack_require__(8);
+var _config = __webpack_require__(6);
 
 var _config2 = _interopRequireDefault(_config);
 
@@ -2459,7 +2459,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _tool = __webpack_require__(5);
 
-var _config = __webpack_require__(8);
+var _config = __webpack_require__(6);
 
 var _config2 = _interopRequireDefault(_config);
 
@@ -2735,7 +2735,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _config = __webpack_require__(8);
+var _config = __webpack_require__(6);
 
 var _config2 = _interopRequireDefault(_config);
 
@@ -2752,6 +2752,13 @@ exports.default = {
   methods: {
     handleToggle: function handleToggle(item) {
       this.active = item.key;
+    },
+    handleToggleStyle: function handleToggleStyle(item) {
+      if (item.key === this.active) {
+        return "tab-title-item-active tab-title-item";
+      } else {
+        return "tab-title-item";
+      }
     }
   }
 }; //
@@ -2786,13 +2793,13 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }, _vm._l((_vm.recordTab), function(item, index) {
     return _c('text', {
       key: index,
-      class: 'tab-title-item ' + item.key === _vm.active ? 'tab-title-item-active' : '',
+      class: _vm.handleToggleStyle(item),
       on: {
         "click": function($event) {
           _vm.handleToggle(item)
         }
       }
-    }, [_vm._v(_vm._s(item.key === _vm.active ? 'tab-title-item-active tab-title-item' : 'tab-title-item'))])
+    }, [_vm._v(_vm._s(item.title))])
   }))])])
 },staticRenderFns: []}
 module.exports.render._withStripped = true
@@ -4351,7 +4358,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _wxcCell = __webpack_require__(6);
+var _wxcCell = __webpack_require__(7);
 
 var _wxcCell2 = _interopRequireDefault(_wxcCell);
 
@@ -15110,7 +15117,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _wxcCell = __webpack_require__(6);
+var _wxcCell = __webpack_require__(7);
 
 var _wxcCell2 = _interopRequireDefault(_wxcCell);
 
@@ -15841,7 +15848,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 exports.default = {
   components: {
-    WxcRichTextText: __webpack_require__(7),
+    WxcRichTextText: __webpack_require__(8),
     WxcRichTextLink: __webpack_require__(215),
     WxcRichTextIcon: __webpack_require__(218),
     WxcRichTextTag: __webpack_require__(16)
@@ -16139,7 +16146,7 @@ var _utils = __webpack_require__(0);
 
 var _utils2 = _interopRequireDefault(_utils);
 
-var _wxcRichTextText = __webpack_require__(7);
+var _wxcRichTextText = __webpack_require__(8);
 
 var _wxcRichTextText2 = _interopRequireDefault(_wxcRichTextText);
 
@@ -18513,7 +18520,7 @@ var _utils = __webpack_require__(0);
 
 var _utils2 = _interopRequireDefault(_utils);
 
-var _wxcRichTextText = __webpack_require__(7);
+var _wxcRichTextText = __webpack_require__(8);
 
 var _wxcRichTextText2 = _interopRequireDefault(_wxcRichTextText);
 

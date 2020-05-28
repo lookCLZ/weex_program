@@ -84,5 +84,17 @@ export default {
       text: "商户",
       title: "新增商户"
     },
+  ],
+  recordTab:[
+    {
+      title:"项目信息",
+      key:"project",
+    },{
+      title:"景区信息",
+      key:"scenic",
+    },{
+      title:"商户信息",
+      key:"merchant",
+    }
   ]
 }

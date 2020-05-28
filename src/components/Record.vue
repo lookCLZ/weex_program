@@ -1,143 +1,62 @@
 <template>
-  <div class="login-page">
-    <div>代勇明aaaaaaaa</div>
-    <div class="week-count">
-      <div class="title">
-        <text>信息录入</text>
-        <text>本周</text>
-      </div>
-      <div class="detail">
-        <div class="item">
-          <text>+2</text>
-          <text>项目信息0000</text>
-        </div>
-        <div class="item">
-          <text>+2</text>
-          <text>项目信息</text>
-        </div>
-        <div class="item">
-          <text>+2</text>
-          <text>项目信息</text>
-        </div>
-        <div class="item">
-          <text>+2</text>
-          <text>项目信息</text>
-        </div>
-        <div class="item">
-          <text>+2</text>
-          <text>项目信息</text>
-        </div>
-        <div class="item">
-          <text>+2</text>
-          <text>项目信息</text>
-        </div>
-        <div class="item">
-          <text>+2</text>
-          <text>项目信息</text>
-        </div>
-        <div class="item">
-          <text>+2</text>
-          <text>项目信息</text>
-        </div>
-        <div class="item">
-          <text>+2</text>
-          <text>项目信息</text>
-        </div>
-        <div class="item">
-          <text>+2</text>
-          <text>项目信息</text>
-        </div>
-        <div class="item">
-          <text>+2</text>
-          <text>项目信息</text>
-        </div>
-        <div class="item">
-          <text>+2</text>
-          <text>项目信息</text>
-        </div>
-        <div class="item">
-          <text>+2</text>
-          <text>项目信息</text>
-        </div>
-        <div class="item">
-          <text>+2</text>
-          <text>项目信息</text>
-        </div>
-        <div class="item">
-          <text>+2</text>
-          <text>项目信息</text>
-        </div>
-        <div class="item">
-          <text>+2</text>
-          <text>项目信息</text>
-        </div>
-        <div class="item">
-          <text>+2</text>
-          <text>项目信息</text>
-        </div>
-        <div class="item">
-          <text>+2</text>
-          <text>项目信息</text>
-        </div>
-        <div class="item">
-          <text>+2</text>
-          <text>项目信息</text>
-        </div>
-        <div class="item">
-          <text>+2</text>
-          <text>项目信息</text>
-        </div>
-        <div class="item">
-          <text>+2</text>
-          <text>项目信息</text>
-        </div>
-        <div class="item">
-          <text>+2</text>
-          <text>项目信息</text>
-        </div>
-        <div class="item">
-          <text>+2</text>
-          <text>项目信息</text>
-        </div>
+  <scroller class="record-page">
+    <div class="top-section">
+      <text class="title-banner">记录</text>
+      <div class="tab-title">
+        <text
+          :class="item.key===active?'tab-title-item-active tab-title-item':'tab-title-item'"
+          v-for="(item,index) in recordTab"
+          :key="index"
+          @click="handleToggle(item)"
+        >{{item.title}}</text>
       </div>
     </div>
-    ccccccccccccccccccccccccccccccccc
-  </div>
+  </scroller>
 </template>
 <script>
-import { WxcButton } from "weex-ui";
-
+import Config from "@/config.js";
 export default {
-  components: { WxcButton },
-
   data() {
-    return {};
+    return {
+      recordTab: Config.recordTab,
+      active: "project"
+    };
+  },
+  methods: {
+    handleToggle(item) {
+      this.active = item.key;
+    }
   }
 };
 </script>
 <style scoped>
-.logo {
-  width: 424px;
-  height: 200px;
+.record-page {
 }
-.login-title {
-  margin-top: 50px;
-  text-align: center;
-  font-size: 80px;
-  color: rgb(255, 80, 0);
+.top-section {
+  width: 750px;
+  height: 320px;
+  padding-top: 80px;
+  padding-left: 25px;
+  background-color: #00bf8b;
 }
-.input {
-  width: 100%;
-  height: 80px;
+.title-banner {
   font-size: 50px;
-  margin: 20px auto;
-  border-width: 2px;
-  border-style: solid;
-  border-color: rgb(255, 80, 0);
-  border-radius: 4px;
+  color: #fff;
 }
-
-.button {
-  margin-top: 40px;
+.tab-title {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.tab-title-item {
+  margin-top: 110px;
+  color: #fff;
+  font-size: 35px;
+  padding-bottom: 5px;
+}
+.tab-title-item-active {
+  border-bottom-style: solid;
+  border-bottom-width: 3px;
+  border-bottom-color: #fff;
 }
 </style>

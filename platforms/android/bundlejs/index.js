@@ -2312,9 +2312,11 @@ module.exports = __vue_exports__
 /***/ (function(module, exports) {
 
 module.exports = {
-  "refresh": {
-    "textAlign": "center",
-    "fontSize": "20"
+  "index-page": {
+    "top": 0,
+    "left": 0,
+    "right": 0,
+    "bottom": 0
   },
   "top-section": {
     "width": "750",
@@ -2530,6 +2532,11 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 //
 //
 //
+//
+//
+//
+//
+//
 
 exports.default = {
   props: ["setHomeWebShow"],
@@ -2552,7 +2559,7 @@ exports.default = {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('scroller', {
-    staticClass: ["home-page"]
+    staticClass: ["index-page"]
   }, [_vm._m(0), _c('div', {
     staticClass: ["toggle-add"]
   }, _vm._l((_vm.addRecords), function(item, index) {
@@ -2642,6 +2649,14 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: ["list-item-info"]
   }, [_vm._v("添加了成都欢乐谷乐园的景区信息")]), _c('text', {
     staticClass: ["list-item-time"]
+  }, [_vm._v("4月14日")])]), _c('div', {
+    staticClass: ["list-item"]
+  }, [_c('text', {
+    staticClass: ["list-item-name"]
+  }, [_vm._v("小四")]), _c('text', {
+    staticClass: ["list-item-info"]
+  }, [_vm._v("添加了成都欢乐谷乐园的景区信息")]), _c('text', {
+    staticClass: ["list-item-time"]
   }, [_vm._v("4月14日")])])])
 }]}
 module.exports.render._withStripped = true
@@ -2695,6 +2710,13 @@ module.exports = __vue_exports__
 /***/ (function(module, exports) {
 
 module.exports = {
+  "record-page": {
+    "position": "absolute",
+    "top": 0,
+    "bottom": 0,
+    "left": 0,
+    "right": 0
+  },
   "top-section": {
     "width": "750",
     "height": "320",
@@ -2712,15 +2734,35 @@ module.exports = {
     "justifyContent": "space-around"
   },
   "tab-title-item": {
+    "width": "150",
     "marginTop": "110",
     "color": "#ffffff",
     "fontSize": "35",
-    "paddingBottom": "5"
+    "paddingBottom": "5",
+    "textAlign": "center"
   },
   "tab-title-item-active": {
+    "width": "50",
+    "height": "10",
+    "borderBottomWidth": "7",
     "borderBottomStyle": "solid",
-    "borderBottomWidth": "3",
     "borderBottomColor": "#ffffff"
+  },
+  "tab-title-item-no-active": {
+    "width": "50",
+    "height": "10"
+  },
+  "lists-detail": {
+    "marginTop": "30",
+    "display": "flex"
+  },
+  "list-detail": {
+    "display": "flex",
+    "flexDirection": "row",
+    "justifyContent": "space-around"
+  },
+  "list-item": {
+    "height": "60"
   }
 }
 
@@ -2752,16 +2794,46 @@ exports.default = {
   methods: {
     handleToggle: function handleToggle(item) {
       this.active = item.key;
-    },
-    handleToggleStyle: function handleToggleStyle(item) {
-      if (item.key === this.active) {
-        return "tab-title-item-active tab-title-item";
-      } else {
-        return "tab-title-item";
-      }
     }
   }
 }; //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -2788,19 +2860,46 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: ["top-section"]
   }, [_c('text', {
     staticClass: ["title-banner"]
-  }, [_vm._v("记录")]), _c('div', {
+  }, [_vm._v("记录" + _vm._s(_vm.active))]), _c('div', {
     staticClass: ["tab-title"]
   }, _vm._l((_vm.recordTab), function(item, index) {
     return _c('text', {
       key: index,
-      class: _vm.handleToggleStyle(item),
+      staticClass: ["tab-title-item"],
       on: {
         "click": function($event) {
           _vm.handleToggle(item)
         }
       }
     }, [_vm._v(_vm._s(item.title))])
-  }))])])
+  })), _c('div', {
+    staticClass: ["tab-title"]
+  }, [(_vm.active === 'project') ? _c('text', {
+    staticClass: ["tab-title-item-active"]
+  }) : _c('text', {
+    staticClass: ["tab-title-item-no-active"]
+  }), (_vm.active === 'scenic') ? _c('text', {
+    staticClass: ["tab-title-item-active"]
+  }) : _c('text', {
+    staticClass: ["tab-title-item-no-active"]
+  }), (_vm.active === 'merchant') ? _c('text', {
+    staticClass: ["tab-title-item-active"]
+  }) : _c('text', {
+    staticClass: ["tab-title-item-no-active"]
+  })])]), _c('div', {
+    staticClass: ["lists-detail"]
+  }, _vm._l(([13, 4, 5, 5, 6, 3, 4, 5, 5, 6, 3, 43, 4, 5, 5, 63, 4, 5, 5, 6, 3, 4, 5, 5, 6, 3, 43, 4, 5, 5, 6, 3, 4, 5, 5, 6, 3, 4, 3, 4, 5, 5, 6, 3, 43, 4, 5, 5, 6, 3, 4, 5, 5, 6, 3, 4, 3, 4, 5, 5, 6, 3, 4, 5, 5, 6, 3, 4, 5, 5, 6, 3, 4, 5, 5, 6]), function(item) {
+    return _c('div', {
+      key: item,
+      staticClass: ["list-detail"]
+    }, [_c('text', {
+      staticClass: ["list-item"]
+    }, [_vm._v("成都欢乐谷游乐园")]), _c('text', {
+      staticClass: ["list-item"]
+    }, [_vm._v("主题雷雨")]), _c('text', {
+      staticClass: ["list-item"]
+    }, [_vm._v("240/人次")])])
+  }))])
 },staticRenderFns: []}
 module.exports.render._withStripped = true
 

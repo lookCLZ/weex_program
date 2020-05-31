@@ -1,5 +1,5 @@
 <template>
-  <scroller class="home-page">
+  <scroller class="index-page">
     <div class="top-section">
       <div class="gray-bg">
         <text class="username">代先生</text>
@@ -60,6 +60,86 @@
         <text class="list-item-info">添加了成都欢乐谷乐园的景区信息</text>
         <text class="list-item-time">4月14日</text>
       </div>
+      <div class="list-item">
+        <text class="list-item-name">小四</text>
+        <text class="list-item-info">添加了成都欢乐谷乐园的景区信息</text>
+        <text class="list-item-time">4月14日</text>
+      </div>
+      <div class="list-item">
+        <text class="list-item-name">小四</text>
+        <text class="list-item-info">添加了成都欢乐谷乐园的景区信息</text>
+        <text class="list-item-time">4月14日</text>
+      </div>
+      <div class="list-item">
+        <text class="list-item-name">小四</text>
+        <text class="list-item-info">添加了成都欢乐谷乐园的景区信息</text>
+        <text class="list-item-time">4月14日</text>
+      </div>
+      <div class="list-item">
+        <text class="list-item-name">小四</text>
+        <text class="list-item-info">添加了成都欢乐谷乐园的景区信息</text>
+        <text class="list-item-time">4月14日</text>
+      </div>
+      <div class="list-item">
+        <text class="list-item-name">小四</text>
+        <text class="list-item-info">添加了成都欢乐谷乐园的景区信息</text>
+        <text class="list-item-time">4月14日</text>
+      </div>
+      <div class="list-item">
+        <text class="list-item-name">小四</text>
+        <text class="list-item-info">添加了成都欢乐谷乐园的景区信息</text>
+        <text class="list-item-time">4月14日</text>
+      </div>
+      <div class="list-item">
+        <text class="list-item-name">小四</text>
+        <text class="list-item-info">添加了成都欢乐谷乐园的景区信息</text>
+        <text class="list-item-time">4月14日</text>
+      </div>
+      <div class="list-item">
+        <text class="list-item-name">小四</text>
+        <text class="list-item-info">添加了成都欢乐谷乐园的景区信息</text>
+        <text class="list-item-time">4月14日</text>
+      </div>
+      <div class="list-item">
+        <text class="list-item-name">小四</text>
+        <text class="list-item-info">添加了成都欢乐谷乐园的景区信息</text>
+        <text class="list-item-time">4月14日</text>
+      </div>
+      <div class="list-item">
+        <text class="list-item-name">小四</text>
+        <text class="list-item-info">添加了成都欢乐谷乐园的景区信息</text>
+        <text class="list-item-time">4月14日</text>
+      </div>
+      <div class="list-item">
+        <text class="list-item-name">小四</text>
+        <text class="list-item-info">添加了成都欢乐谷乐园的景区信息</text>
+        <text class="list-item-time">4月14日</text>
+      </div>
+      <div class="list-item">
+        <text class="list-item-name">小四</text>
+        <text class="list-item-info">添加了成都欢乐谷乐园的景区信息</text>
+        <text class="list-item-time">4月14日</text>
+      </div>
+      <div class="list-item">
+        <text class="list-item-name">小四</text>
+        <text class="list-item-info">添加了成都欢乐谷乐园的景区信息</text>
+        <text class="list-item-time">4月14日</text>
+      </div>
+      <div class="list-item">
+        <text class="list-item-name">小四</text>
+        <text class="list-item-info">添加了成都欢乐谷乐园的景区信息</text>
+        <text class="list-item-time">4月14日</text>
+      </div>
+      <div class="list-item">
+        <text class="list-item-name">小四</text>
+        <text class="list-item-info">添加了成都欢乐谷乐园的景区信息</text>
+        <text class="list-item-time">4月14日</text>
+      </div>
+      <div class="list-item">
+        <text class="list-item-name">小四哦哦哦哦哦</text>
+        <text class="list-item-info">添加了成都欢乐谷乐园的景区信息</text>
+        <text class="list-item-time">4月14日</text>
+      </div>
     </div>
   </scroller>
 </template>
@@ -82,18 +162,14 @@ export default {
 };
 </script>
 <style scoped>
-.home-page {
-  /* position: absolute;
+.index-page {
+  position: position;
   top: 0;
   left: 0;
   right: 0;
-  bottom: 0; */
+  bottom: 0;
 }
-.refresh {
-  text-align: center;
-  font-size: 20px;
-}
-.top-section {
+/* .top-section {
   width: 750px;
   height: 500px;
   overflow: visible;
@@ -210,5 +286,5 @@ export default {
 .list-item-time {
   font-size: 30px;
   color: #b4b4b4;
-}
+} */
 </style>

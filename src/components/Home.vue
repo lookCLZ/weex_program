@@ -1,5 +1,5 @@
 <template>
-  <scroller class="index-page">
+  <div class="index-page">
     <div class="top-section">
       <div class="gray-bg">
         <text class="username">代先生</text>
@@ -44,7 +44,7 @@
       </div>
     </div>
     <text class="msg">即时动态</text>
-    <div class="list">
+    <scroller class="list">
       <div class="list-item">
         <text class="list-item-name">小二</text>
         <text class="list-item-info">添加了成都欢乐谷乐园的景区信息</text>
@@ -140,8 +140,8 @@
         <text class="list-item-info">添加了成都欢乐谷乐园的景区信息</text>
         <text class="list-item-time">4月14日</text>
       </div>
-    </div>
-  </scroller>
+    </scroller>
+  </div>
 </template>
 <script>
 import { getImg } from "@/tool.js";
@@ -169,7 +169,7 @@ export default {
   right: 0;
   bottom: 0;
 }
-/* .top-section {
+.top-section {
   width: 750px;
   height: 500px;
   overflow: visible;
@@ -268,6 +268,7 @@ export default {
 }
 .list {
   width: 750px;
+  height: 300px;
   padding-left: 50px;
 }
 .list-item {
@@ -286,5 +287,5 @@ export default {
 .list-item-time {
   font-size: 30px;
   color: #b4b4b4;
-} */
+}
 </style>

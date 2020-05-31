@@ -20,7 +20,7 @@ export default {
   },
   data() {
     return {
-      logged: true
+      logged: false
     };
   },
   mounted() {

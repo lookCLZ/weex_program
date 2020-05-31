@@ -47,7 +47,7 @@ export default {
   methods: {
     wxcButtonClicked() {
       axios
-        .get("http://127.0.0.1/v1/user/login", {
+        .get("http://127.0.0.1:9080/v1/user/login", {
           params: {
             username: this.username,
             password: this.password
@@ -55,7 +55,14 @@ export default {
         })
         .then(function(response) {
           if (response.data.code == 200) {
-            this.stor();
+            storage.setItem("login", "success", res => {
+              if (res.result == "success") {
+                modal.toast({
+                  message: "账号验证通过",
+                  duration: 2
+                });
+              }
+            });
           } else {
             modal.toast({
               message: "账号未通过验证",
@@ -69,17 +76,6 @@ export default {
             duration: 2
           });
         });
-    },
-    stor() {
-      storage.setItem("login", "success", res => {
-        if (res.result == "success") {
-          // 数据缓存成功后的操作
-          modal.toast({
-            message: "账号验证通过",
-            duration: 2
-          });
-        }
-      });
     }
   }
 };

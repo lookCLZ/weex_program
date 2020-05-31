@@ -28,15 +28,16 @@ export default {
   },
   methods: {
     listenStorage() {
-      let that = this
-       that.logged = true;
-      // setInterval(() => {
-      //   storage.getItem("login", res => {
-      //     if (res.result == "success") {
-      //       that.logged = true;
-      //     }
-      //   });
-      // }, 2000);
+      let that = this;
+      setInterval(() => {
+        storage.getItem("login", res => {
+          if (res.result == "success") {
+            that.logged = true;
+          } else {
+            that.logged = false;
+          }
+        });
+      }, 2000);
     }
   }
 };

@@ -11,7 +11,6 @@
       style="height:1000px"
       src="https://dist.rechengparty.com/"
     ></web>
-    {{vh}}
   </div>
 </template>
 <script>

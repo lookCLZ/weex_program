@@ -37,7 +37,7 @@
         ></text>
       </div>
     </div>
-    <div class="lists-detail">
+    <scroller scroll-direction="horizontal" class="lists-detail">
       <div
         v-for="item in [13,4,5,5,6,3,4,5,5,6,3,43,4,5,5,63,4,5,5,6,3,4,5,5,6,3,43,4,5,5,6,3,4,5,5,6,3,4,3,4,5,5,6,3,43,4,5,5,6,3,4,5,5,6,3,4,3,4,5,5,6,3,4,5,5,6,3,4,5,5,6,3,4,5,5,6]"
         :key="item"
@@ -46,8 +46,11 @@
         <text class="list-item">成都欢乐谷游乐园</text>
         <text class="list-item">主题雷雨</text>
         <text class="list-item">240/人次</text>
+        <text class="list-item">240/人次</text>
+        <text class="list-item">240/人次</text>
+        <text class="list-item">240/人次</text>
       </div>
-    </div>
+    </scroller>
   </scroller>
 </template>
 <script>
@@ -110,6 +113,7 @@ export default {
   height: 10px;
 }
 .lists-detail {
+  width: 1500px;
   margin-top:30px;
   display: flex;
 }

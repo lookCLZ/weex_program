@@ -7,20 +7,18 @@
       @wxcMinibarLeftButtonClicked="goBack"
     ></wxc-minibar>
     <web
-      class="web"
+      style='width: {{$getConfig().env.deviceWidth}}px;height: {{$getConfig().env.deviceWidth}}px;'
       src="https://dist.rechengparty.com/"
     ></web>
   </div>
 </template>
 <script>
-import { WxcMinibar } from 'weex-ui';
+import { WxcMinibar } from "weex-ui";
 
 export default {
   props: ["homeWebInfo", "setHomeWebShow"],
   components: { WxcMinibar },
-  mounted(){
-
-  },
+  mounted() {},
   methods: {
     goBack() {
       this.setHomeWebShow(false, null);
@@ -30,13 +28,6 @@ export default {
 </script>
 
 <style scoped>
-.wrapper {
-  position: absolute;
-  top: 0px;
-  right: 0px;
-  bottom: 0px;
-  left: 0px;
-}
 .header {
   display: flex;
   justify-content: space-around;
@@ -54,13 +45,5 @@ export default {
   color: #00bf8b;
   font-size: 40px;
   line-height: 80px;
-}
-.web {
-  width: 750px;
-  position: absolute;
-  top: 80px;
-  bottom: 0px;
-  right: 0px;
-  left: 0px;
 }
 </style>

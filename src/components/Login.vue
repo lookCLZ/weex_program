@@ -4,6 +4,7 @@
       :src="logo"
       class="logo"
     />
+    <text>{{ret}}::::::</text>
     <div class="form">
       <input
         class="input"
@@ -40,12 +41,15 @@ export default {
     return {
       logo: getImg("logo_big.jpg"),
       username: "",
-      password: ""
+      password: "",
+      ret:{},
+      res:{},
     };
   },
 
   methods: {
     wxcButtonClicked() {
+      let that=this
       stream.fetch(
         {
           method: "GET",
@@ -55,8 +59,9 @@ export default {
             "&password=" +
             this.password
         },
-        function(response) {
-          if (response.code == 200) {
+        function(ret) {
+          that.ret=ret.data
+          if (that.ret.data.code == 200) {
             storage.setItem("login", "success", res => {
               if (res.result == "success") {
                 modal.toast({
@@ -71,6 +76,9 @@ export default {
               duration: 2
             });
           }
+        },
+        function(res){
+          that.res=res
         }
       );
     }

@@ -7,7 +7,6 @@
       @wxcMinibarLeftButtonClicked="goBack"
     ></wxc-minibar>
     <web
-      style='width: {{$getConfig().env.deviceWidth}}px;height: {{$getConfig().env.deviceWidth}}px;'
       src="https://dist.rechengparty.com/"
     ></web>
   </div>

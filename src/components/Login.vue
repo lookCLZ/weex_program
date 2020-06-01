@@ -29,9 +29,9 @@
 <script>
 import { WxcButton } from "weex-ui";
 import { getImg } from "@/tool.js";
-import axios from "axios";
 const storage = weex.requireModule("storage");
 const modal = weex.requireModule("modal");
+var stream = weex.requireModule("stream");
 
 export default {
   components: { WxcButton },
@@ -46,15 +46,17 @@ export default {
 
   methods: {
     wxcButtonClicked() {
-      axios
-        .get("http://127.0.0.1:9080/v1/user/login", {
-          params: {
-            username: this.username,
-            password: this.password
-          }
-        })
-        .then(function(response) {
-          if (response.data.code == 200) {
+      stream.fetch(
+        {
+          method: "GET",
+          url:
+            "http://rechengparty.com:9080/v1/user/login?username=" +
+            this.username +
+            "&password=" +
+            this.password
+        },
+        function(response) {
+          if (response.code == 200) {
             storage.setItem("login", "success", res => {
               if (res.result == "success") {
                 modal.toast({
@@ -69,13 +71,8 @@ export default {
               duration: 2
             });
           }
-        })
-        .catch(function(error) {
-          modal.toast({
-            message: "账号未通过验证",
-            duration: 2
-          });
-        });
+        }
+      );
     }
   }
 };

@@ -1,7 +1,7 @@
 <resources>
 
     <string name="app_name">尚品美视</string>
-    <string name="dummy_content">尚品美视x</string>
+    <string name="dummy_content"></string>
     <string name="capture_qrcode_prompt">Please put the barcode in the framing frame to scan</string>
     <string name="cpu_not_support_tip">Sorry, your current device is x86 architecture.\n We only
         support arm architecture devices!

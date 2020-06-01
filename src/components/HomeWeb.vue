@@ -7,8 +7,11 @@
       @wxcMinibarLeftButtonClicked="goBack"
     ></wxc-minibar>
     <web
+      class="web"
+      style="height:1000px"
       src="https://dist.rechengparty.com/"
     ></web>
+    {{vh}}
   </div>
 </template>
 <script>
@@ -17,6 +20,11 @@ import { WxcMinibar } from "weex-ui";
 export default {
   props: ["homeWebInfo", "setHomeWebShow"],
   components: { WxcMinibar },
+  data() {
+    return {
+      vh: "height:400px",
+    };
+  },
   mounted() {},
   methods: {
     goBack() {
@@ -44,5 +52,8 @@ export default {
   color: #00bf8b;
   font-size: 40px;
   line-height: 80px;
+}
+.web {
+  width: 750px;
 }
 </style>

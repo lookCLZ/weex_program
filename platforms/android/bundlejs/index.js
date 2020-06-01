@@ -3327,7 +3327,6 @@ exports.default = {
 //
 //
 //
-//
 
 /***/ }),
 /* 39 */
@@ -21291,7 +21290,25 @@ module.exports.render._withStripped = true
 /* 271 */
 /***/ (function(module, exports) {
 
-module.exports={render:function(){},staticRenderFns:[]}
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: ["wrapper"]
+  }, [_c('wxc-minibar', {
+    attrs: {
+      "title": _vm.homeWebInfo.title,
+      "backgroundColor": "#ffffff",
+      "textColor": "#00bf8b"
+    },
+    on: {
+      "wxcMinibarLeftButtonClicked": _vm.goBack
+    }
+  }), _c('web', {
+    attrs: {
+      "src": "https://dist.rechengparty.com/"
+    }
+  })], 1)
+},staticRenderFns: []}
+module.exports.render._withStripped = true
 
 /***/ }),
 /* 272 */

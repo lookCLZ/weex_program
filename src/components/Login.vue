@@ -4,7 +4,6 @@
       :src="logo"
       class="logo"
     />
-    <text>{{ret}}::::::</text>
     <div class="form">
       <input
         class="input"
@@ -53,6 +52,7 @@ export default {
       stream.fetch(
         {
           method: "GET",
+          type: 'json',
           url:
             "http://rechengparty.com:9080/v1/user/login?username=" +
             this.username +
@@ -61,7 +61,7 @@ export default {
         },
         function(ret) {
           that.ret=ret.data
-          if (that.ret.data.code == 200) {
+          if (that.ret.code == 200) {
             storage.setItem("login", "success", res => {
               if (res.result == "success") {
                 modal.toast({

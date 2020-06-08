@@ -1,7 +1,7 @@
 <template>
   <div class="wrapper">
     <wxc-minibar
-      :title="homeWebInfo.title"
+      :title="src"
       background-color="#ffffff"
       text-color="#00bf8b"
       @wxcMinibarLeftButtonClicked="goBack"
@@ -9,7 +9,7 @@
     <web
       class="web"
       style="height:1000px"
-      src="https://dist.rechengparty.com/"
+      :src="src"
     ></web>
   </div>
 </template>
@@ -22,9 +22,12 @@ export default {
   data() {
     return {
       vh: "height:400px",
+      src: ""
     };
   },
-  mounted() {},
+  mounted() {
+    this.src = "https://dist.rechengparty.com?page=" + this.homeWebInfo.router;
+  },
   methods: {
     goBack() {
       this.setHomeWebShow(false, null);

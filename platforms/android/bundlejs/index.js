@@ -3288,6 +3288,9 @@ module.exports = {
     "color": "#00bf8b",
     "fontSize": "40",
     "lineHeight": "80"
+  },
+  "web": {
+    "width": "750"
   }
 }
 
@@ -3307,7 +3310,15 @@ var _weexUi = __webpack_require__(3);
 exports.default = {
   props: ["homeWebInfo", "setHomeWebShow"],
   components: { WxcMinibar: _weexUi.WxcMinibar },
-  mounted: function mounted() {},
+  data: function data() {
+    return {
+      vh: "height:400px",
+      src: ""
+    };
+  },
+  mounted: function mounted() {
+    this.src = "https://dist.rechengparty.com?page=" + this.homeWebInfo.router;
+  },
 
   methods: {
     goBack: function goBack() {
@@ -3315,6 +3326,8 @@ exports.default = {
     }
   }
 }; //
+//
+//
 //
 //
 //
@@ -21295,7 +21308,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: ["wrapper"]
   }, [_c('wxc-minibar', {
     attrs: {
-      "title": _vm.homeWebInfo.title,
+      "title": _vm.src,
       "backgroundColor": "#ffffff",
       "textColor": "#00bf8b"
     },
@@ -21303,8 +21316,12 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "wxcMinibarLeftButtonClicked": _vm.goBack
     }
   }), _c('web', {
+    staticClass: ["web"],
+    staticStyle: {
+      height: "1000px"
+    },
     attrs: {
-      "src": "https://dist.rechengparty.com/"
+      "src": _vm.src
     }
   })], 1)
 },staticRenderFns: []}

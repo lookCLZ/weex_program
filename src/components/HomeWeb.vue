@@ -26,7 +26,7 @@ export default {
     };
   },
   mounted() {
-    this.src = "https://dist.rechengparty.com?page=" + this.homeWebInfo.router;
+    this.src = "http://dist.rechengparty.com?page=" + this.homeWebInfo.router;
   },
   methods: {
     goBack() {
@@ -37,6 +37,9 @@ export default {
 </script>
 
 <style scoped>
+.wrapper{
+  background-color:#fff;
+}
 .header {
   display: flex;
   justify-content: space-around;

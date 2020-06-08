@@ -41,18 +41,18 @@ export default {
       logo: getImg("logo_big.jpg"),
       username: "",
       password: "",
-      ret:{},
-      res:{},
+      ret: {},
+      res: {}
     };
   },
 
   methods: {
     wxcButtonClicked() {
-      let that=this
+      let that = this;
       stream.fetch(
         {
           method: "GET",
-          type: 'json',
+          type: "json",
           url:
             "http://rechengparty.com:9080/v1/user/login?username=" +
             this.username +
@@ -60,9 +60,9 @@ export default {
             this.password
         },
         function(ret) {
-          that.ret=ret.data
+          that.ret = ret.data;
           if (that.ret.code == 200) {
-            storage.setItem("login", "success", res => {
+            storage.setItem("login", that.username, res => {
               if (res.result == "success") {
                 modal.toast({
                   message: "账号验证通过",
@@ -77,8 +77,8 @@ export default {
             });
           }
         },
-        function(res){
-          that.res=res
+        function(res) {
+          that.res = res;
         }
       );
     }

@@ -1,7 +1,7 @@
 <template>
   <div class="wrapper">
     <wxc-minibar
-      :title="src"
+      :title="homeWebInfo.title"
       background-color="#ffffff"
       text-color="#00bf8b"
       @wxcMinibarLeftButtonClicked="goBack"
@@ -15,6 +15,7 @@
 </template>
 <script>
 import { WxcMinibar } from "weex-ui";
+const storage = weex.requireModule("storage");
 
 export default {
   props: ["homeWebInfo", "setHomeWebShow"],
@@ -22,11 +23,21 @@ export default {
   data() {
     return {
       vh: "height:400px",
-      src: ""
+      src: "",
+      user: ""
     };
   },
   mounted() {
-    this.src = "http://dist.rechengparty.com?page=" + this.homeWebInfo.router;
+    storage.getItem("login", res => {
+      if (res.result == "success") {
+        this.user = res.data;
+      }
+    });
+    this.src =
+      "http://dist.rechengparty.com?page=" +
+      this.homeWebInfo.router +
+      "&user=" +
+      this.user;
   },
   methods: {
     goBack() {
@@ -37,8 +48,8 @@ export default {
 </script>
 
 <style scoped>
-.wrapper{
-  background-color:#fff;
+.wrapper {
+  background-color: #fff;
 }
 .header {
   display: flex;

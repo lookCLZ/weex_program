@@ -30,14 +30,14 @@ export default {
     listenStorage() {
       let that = this;
       setInterval(() => {
-        storage.getItem("login", res => {
+        let res = storage.getItem("login", res => {
           if (res.result == "success") {
             that.logged = true;
           } else {
             that.logged = false;
           }
         });
-      }, 2000);
+      }, 500);
     }
   }
 };

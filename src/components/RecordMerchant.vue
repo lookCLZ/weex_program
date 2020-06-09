@@ -7,7 +7,7 @@
       <div
         v-for="item in list"
         :key="item"
-        class="list-detail"
+        class="aaa list-detail"
       >
         <text
           v-for="(v,k,i) in item"
@@ -30,7 +30,7 @@ export default {
     };
   },
   created() {
-    let that = this
+    let that = this;
     stream.fetch(
       {
         method: "GET",
@@ -55,6 +55,7 @@ export default {
   width: 1500px;
   margin-top: 30px;
   display: flex;
+  background-color: #f2f3f4;
 }
 .list-detail {
   display: flex;

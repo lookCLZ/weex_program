@@ -7,7 +7,7 @@
       <div
         v-for="item in list"
         :key="item"
-        class="list-detail"
+        class="bbb list-detail"
       >
         <text
           v-for="(v,k,i) in item"
@@ -55,6 +55,7 @@ export default {
   width: 1500px;
   margin-top: 30px;
   display: flex;
+  background-color: #F2F3F4;
 }
 .list-detail {
   display: flex;

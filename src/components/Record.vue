@@ -43,7 +43,7 @@
       class="lists-detail"
     >
       <div
-        v-for="item in list"
+        v-for="item in listProject"
         :key="item"
         class="list-detail"
       >
@@ -65,7 +65,7 @@
         class="list-detail"
       >
         <text
-          v-for="(v,k,i) in item"
+          v-for="(v,k,i) in itemScenic"
           :key="i"
           class="list-item"
         >{{v}}</text>
@@ -77,7 +77,7 @@
       class="lists-detail"
     >
       <div
-        v-for="item in list"
+        v-for="item in listMerchant"
         :key="item"
         class="list-detail"
       >
@@ -99,10 +99,11 @@ export default {
     return {
       recordTab: Config.recordTab,
       active: "project",
-      listShow: true,
       ret: {},
       res: {},
-      list: []
+      listProject: [],
+      listScenic: [],
+      listMerchant: []
     };
   },
   created() {
@@ -127,7 +128,6 @@ export default {
   methods: {
     handleToggle(item) {
       this.active = item.key;
-      this.listShow = false;
       let that = this;
       stream.fetch(
         {
@@ -138,8 +138,15 @@ export default {
         function(ret) {
           that.ret = ret.data;
           if (that.ret.code == 200) {
-            this.listShow = true;
-            that.list = that.ret.data;
+            if (this.active == "project") {
+              that.listProject = that.ret.data;
+            }
+            if (this.active == "scenic") {
+              that.listScenic = that.ret.data;
+            }
+            if ((this.active = "merchant")) {
+              that.listMerchant = that.ret.data;
+            }
           }
         },
         function(res) {

@@ -37,9 +37,12 @@
         ></text>
       </div>
     </div>
-    <scroller scroll-direction="horizontal" class="lists-detail">
+    <scroller
+      scroll-direction="horizontal"
+      class="lists-detail"
+    >
       <div
-        v-for="item in [13,4,5,5,6,3,4,5,5,6,3,43,4,5,5,63,4,5,5,6,3,4,5,5,6,3,43,4,5,5,6,3,4,5,5,6,3,4,3,4,5,5,6,3,43,4,5,5,6,3,4,5,5,6,3,4,3,4,5,5,6,3,4,5,5,6,3,4,5,5,6,3,4,5,5,6]"
+        v-for="item in list"
         :key="item"
         class="list-detail"
       >
@@ -55,12 +58,36 @@
 </template>
 <script>
 import Config from "@/config.js";
+var stream = weex.requireModule("stream");
+
 export default {
   data() {
     return {
       recordTab: Config.recordTab,
-      active: "project"
+      active: "project",
+      ret: {},
+      res: {},
+      list: []
     };
+  },
+  created() {
+    let that = this;
+    stream.fetch(
+      {
+        method: "GET",
+        type: "json",
+        url: "http://rechengparty.com:9080/v1/project/list"
+      },
+      function(ret) {
+        that.ret = ret.data;
+        if (that.ret.code == 200) {
+          that.list = that.ret.data;
+        }
+      },
+      function(res) {
+        that.res = res;
+      }
+    );
   },
   methods: {
     handleToggle(item) {
@@ -71,11 +98,11 @@ export default {
 </script>
 <style scoped>
 .record-page {
-  position:absolute;
-  top:0;
-  bottom:0;
-  left:0;
-  right:0;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
 }
 .top-section {
   width: 750px;
@@ -114,7 +141,7 @@ export default {
 }
 .lists-detail {
   width: 1500px;
-  margin-top:30px;
+  margin-top: 30px;
   display: flex;
 }
 .list-detail {

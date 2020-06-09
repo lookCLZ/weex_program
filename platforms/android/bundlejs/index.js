@@ -2074,14 +2074,14 @@ exports.default = {
     listenStorage: function listenStorage() {
       var that = this;
       setInterval(function () {
-        storage.getItem("login", function (res) {
+        var res = storage.getItem("login", function (res) {
           if (res.result == "success") {
             that.logged = true;
           } else {
             that.logged = false;
           }
         });
-      }, 2000);
+      }, 500);
     }
   }
 };
@@ -3271,6 +3271,9 @@ module.exports = __vue_exports__
 /***/ (function(module, exports) {
 
 module.exports = {
+  "wrapper": {
+    "backgroundColor": "#ffffff"
+  },
   "header": {
     "display": "flex",
     "justifyContent": "space-around",
@@ -3307,17 +3310,41 @@ Object.defineProperty(exports, "__esModule", {
 
 var _weexUi = __webpack_require__(3);
 
+var storage = weex.requireModule("storage"); //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
 exports.default = {
   props: ["homeWebInfo", "setHomeWebShow"],
   components: { WxcMinibar: _weexUi.WxcMinibar },
   data: function data() {
     return {
       vh: "height:400px",
-      src: ""
+      src: "",
+      user: ""
     };
   },
   mounted: function mounted() {
-    this.src = "https://dist.rechengparty.com?page=" + this.homeWebInfo.router;
+    var _this = this;
+
+    storage.getItem("login", function (res) {
+      if (res.result == "success") {
+        _this.user = res.data;
+      }
+    });
+    this.src = "http://dist.rechengparty.com?page=" + this.homeWebInfo.router + "&user=" + this.user;
   },
 
   methods: {
@@ -3325,21 +3352,7 @@ exports.default = {
       this.setHomeWebShow(false, null);
     }
   }
-}; //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+};
 
 /***/ }),
 /* 39 */
@@ -21308,7 +21321,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: ["wrapper"]
   }, [_c('wxc-minibar', {
     attrs: {
-      "title": _vm.src,
+      "title": _vm.homeWebInfo.title,
       "backgroundColor": "#ffffff",
       "textColor": "#00bf8b"
     },
@@ -21516,12 +21529,12 @@ exports.default = {
       var that = this;
       stream.fetch({
         method: "GET",
-        type: 'json',
+        type: "json",
         url: "http://rechengparty.com:9080/v1/user/login?username=" + this.username + "&password=" + this.password
       }, function (ret) {
         that.ret = ret.data;
         if (that.ret.code == 200) {
-          storage.setItem("login", "success", function (res) {
+          storage.setItem("login", that.username, function (res) {
             if (res.result == "success") {
               modal.toast({
                 message: "账号验证通过",

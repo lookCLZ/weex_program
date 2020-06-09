@@ -46,12 +46,19 @@
         :key="item"
         class="list-detail"
       >
-        <text class="list-item">成都欢乐谷游乐园</text>
-        <text class="list-item">主题雷雨</text>
-        <text class="list-item">240/人次</text>
-        <text class="list-item">240/人次</text>
-        <text class="list-item">240/人次</text>
-        <text class="list-item">240/人次</text>
+        <text class="list-item">{{item.customer_name}}</text>
+        <text class="list-item">{{item.customer_phone}}</text>
+        <text class="list-item">{{item.customer_wechat}}</text>
+        <text class="list-item">{{item.customer_origin}}</text>
+        <text class="list-item">{{item.company_name}}</text>
+        <text class="list-item">{{item.customer_perfession}}</text>
+        <text class="list-item">{{item.customer_type}}</text>
+        <text class="list-item">{{item.project_type}}</text>
+        <text class="list-item">{{item.need_product}}</text>
+        <text class="list-item">{{item.project_addr}}</text>
+        <text class="list-item">{{item.project_name}}</text>
+        <text class="list-item">{{item.project_state}}</text>
+        <text class="list-item">{{item.customer_level}}</text>
       </div>
     </scroller>
   </scroller>

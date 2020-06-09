@@ -2948,19 +2948,6 @@ module.exports = {
   "tab-title-item-no-active": {
     "width": "50",
     "height": "10"
-  },
-  "lists-detail": {
-    "width": "1500",
-    "marginTop": "30",
-    "display": "flex"
-  },
-  "list-detail": {
-    "display": "flex",
-    "flexDirection": "row",
-    "justifyContent": "space-around"
-  },
-  "list-item": {
-    "height": "60"
   }
 }
 
@@ -2979,16 +2966,20 @@ var _config = __webpack_require__(6);
 
 var _config2 = _interopRequireDefault(_config);
 
+var _RecordMerchant = __webpack_require__(278);
+
+var _RecordMerchant2 = _interopRequireDefault(_RecordMerchant);
+
+var _RecordProject = __webpack_require__(282);
+
+var _RecordProject2 = _interopRequireDefault(_RecordProject);
+
+var _RecordScenic = __webpack_require__(286);
+
+var _RecordScenic2 = _interopRequireDefault(_RecordScenic);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var stream = weex.requireModule("stream"); //
-//
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -3035,14 +3026,19 @@ var stream = weex.requireModule("stream"); //
 //
 //
 
+var stream = weex.requireModule("stream");
+
 exports.default = {
+  components: { RecordMerchant: _RecordMerchant2.default, RecordProject: _RecordProject2.default, RecordScenic: _RecordScenic2.default },
   data: function data() {
     return {
       recordTab: _config2.default.recordTab,
       active: "project",
       ret: {},
       res: {},
-      list: []
+      listProject: [],
+      listScenic: [],
+      listMerchant: []
     };
   },
   created: function created() {
@@ -3064,20 +3060,6 @@ exports.default = {
   methods: {
     handleToggle: function handleToggle(item) {
       this.active = item.key;
-      this.list = [];
-      var that = this;
-      stream.fetch({
-        method: "GET",
-        type: "json",
-        url: "http://rechengparty.com:9080/v1/" + that.active + "/list"
-      }, function (ret) {
-        that.ret = ret.data;
-        if (that.ret.code == 200) {
-          that.list = that.ret.data;
-        }
-      }, function (res) {
-        that.res = res;
-      });
     }
   }
 };
@@ -3093,7 +3075,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: ["top-section"]
   }, [_c('text', {
     staticClass: ["title-banner"]
-  }, [_vm._v("记录" + _vm._s(_vm.active))]), _c('div', {
+  }, [_vm._v("记录")]), _c('div', {
     staticClass: ["tab-title"]
   }, _vm._l((_vm.recordTab), function(item, index) {
     return _c('text', {
@@ -3119,22 +3101,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: ["tab-title-item-active"]
   }) : _c('text', {
     staticClass: ["tab-title-item-no-active"]
-  })])]), _c('scroller', {
-    staticClass: ["lists-detail"],
-    attrs: {
-      "scrollDirection": "horizontal"
-    }
-  }, _vm._l((_vm.list), function(item) {
-    return _c('div', {
-      key: item,
-      staticClass: ["list-detail"]
-    }, _vm._l((item), function(v, k, i) {
-      return _c('text', {
-        key: i,
-        staticClass: ["list-item"]
-      }, [_vm._v(_vm._s(v))])
-    }))
-  }))])
+  })])]), (_vm.active === 'merchant') ? _c('record-merchant') : _vm._e(), (_vm.active === 'project') ? _c('record-project') : _vm._e(), (_vm.active === 'scenic') ? _c('record-scenic') : _vm._e()], 1)
 },staticRenderFns: []}
 module.exports.render._withStripped = true
 
@@ -21638,6 +21605,435 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   return _c('div', {
     staticClass: ["wrapper"]
   }, [(!_vm.logged) ? _c('login') : _vm._e(), (_vm.logged) ? _c('operate') : _vm._e()], 1)
+},staticRenderFns: []}
+module.exports.render._withStripped = true
+
+/***/ }),
+/* 278 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __vue_exports__, __vue_options__
+var __vue_styles__ = []
+
+/* styles */
+__vue_styles__.push(__webpack_require__(279)
+)
+
+/* script */
+__vue_exports__ = __webpack_require__(280)
+
+/* template */
+var __vue_template__ = __webpack_require__(281)
+__vue_options__ = __vue_exports__ = __vue_exports__ || {}
+if (
+  typeof __vue_exports__.default === "object" ||
+  typeof __vue_exports__.default === "function"
+) {
+if (Object.keys(__vue_exports__).some(function (key) { return key !== "default" && key !== "__esModule" })) {console.error("named exports are not supported in *.vue files.")}
+__vue_options__ = __vue_exports__ = __vue_exports__.default
+}
+if (typeof __vue_options__ === "function") {
+  __vue_options__ = __vue_options__.options
+}
+__vue_options__.__file = "/Users/liuhongrui/weex-app/src/components/RecordMerchant.vue"
+__vue_options__.render = __vue_template__.render
+__vue_options__.staticRenderFns = __vue_template__.staticRenderFns
+__vue_options__._scopeId = "data-v-317bfa2e"
+__vue_options__.style = __vue_options__.style || {}
+__vue_styles__.forEach(function (module) {
+  for (var name in module) {
+    __vue_options__.style[name] = module[name]
+  }
+})
+if (typeof __register_static_styles__ === "function") {
+  __register_static_styles__(__vue_options__._scopeId, __vue_styles__)
+}
+
+module.exports = __vue_exports__
+
+
+/***/ }),
+/* 279 */
+/***/ (function(module, exports) {
+
+module.exports = {
+  "lists-detail": {
+    "width": "1500",
+    "marginTop": "30",
+    "display": "flex"
+  },
+  "list-detail": {
+    "display": "flex",
+    "flexDirection": "row",
+    "justifyContent": "space-around"
+  },
+  "list-item": {
+    "height": "60"
+  }
+}
+
+/***/ }),
+/* 280 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+var stream = weex.requireModule("stream");
+
+exports.default = {
+  data: function data() {
+    return {
+      ret: {},
+      res: {},
+      list: []
+    };
+  },
+  created: function created() {
+    stream.fetch({
+      method: "GET",
+      type: "json",
+      url: "http://rechengparty.com:9080/v1/merchant/list"
+    }, function (ret) {
+      that.ret = ret.data;
+      if (that.ret.code == 200) {
+        that.list = that.ret.data;
+      }
+    }, function (res) {
+      that.res = res;
+    });
+  }
+};
+
+/***/ }),
+/* 281 */
+/***/ (function(module, exports) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('scroller', {
+    staticClass: ["lists-detail"],
+    attrs: {
+      "scrollDirection": "horizontal"
+    }
+  }, _vm._l((_vm.list), function(item) {
+    return _c('div', {
+      key: item,
+      staticClass: ["list-detail"]
+    }, _vm._l((item), function(v, k, i) {
+      return _c('text', {
+        key: i,
+        staticClass: ["list-item"]
+      }, [_vm._v(_vm._s(v))])
+    }))
+  }))
+},staticRenderFns: []}
+module.exports.render._withStripped = true
+
+/***/ }),
+/* 282 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __vue_exports__, __vue_options__
+var __vue_styles__ = []
+
+/* styles */
+__vue_styles__.push(__webpack_require__(283)
+)
+
+/* script */
+__vue_exports__ = __webpack_require__(284)
+
+/* template */
+var __vue_template__ = __webpack_require__(285)
+__vue_options__ = __vue_exports__ = __vue_exports__ || {}
+if (
+  typeof __vue_exports__.default === "object" ||
+  typeof __vue_exports__.default === "function"
+) {
+if (Object.keys(__vue_exports__).some(function (key) { return key !== "default" && key !== "__esModule" })) {console.error("named exports are not supported in *.vue files.")}
+__vue_options__ = __vue_exports__ = __vue_exports__.default
+}
+if (typeof __vue_options__ === "function") {
+  __vue_options__ = __vue_options__.options
+}
+__vue_options__.__file = "/Users/liuhongrui/weex-app/src/components/RecordProject.vue"
+__vue_options__.render = __vue_template__.render
+__vue_options__.staticRenderFns = __vue_template__.staticRenderFns
+__vue_options__._scopeId = "data-v-c6bbacf0"
+__vue_options__.style = __vue_options__.style || {}
+__vue_styles__.forEach(function (module) {
+  for (var name in module) {
+    __vue_options__.style[name] = module[name]
+  }
+})
+if (typeof __register_static_styles__ === "function") {
+  __register_static_styles__(__vue_options__._scopeId, __vue_styles__)
+}
+
+module.exports = __vue_exports__
+
+
+/***/ }),
+/* 283 */
+/***/ (function(module, exports) {
+
+module.exports = {
+  "lists-detail": {
+    "width": "1500",
+    "marginTop": "30",
+    "display": "flex"
+  },
+  "list-detail": {
+    "display": "flex",
+    "flexDirection": "row",
+    "justifyContent": "space-around"
+  },
+  "list-item": {
+    "height": "60"
+  }
+}
+
+/***/ }),
+/* 284 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+var stream = weex.requireModule("stream");
+
+exports.default = {
+  data: function data() {
+    return {
+      ret: {},
+      res: {},
+      list: []
+    };
+  },
+  created: function created() {
+    stream.fetch({
+      method: "GET",
+      type: "json",
+      url: "http://rechengparty.com:9080/v1/project/list"
+    }, function (ret) {
+      that.ret = ret.data;
+      if (that.ret.code == 200) {
+        that.list = that.ret.data;
+      }
+    }, function (res) {
+      that.res = res;
+    });
+  }
+};
+
+/***/ }),
+/* 285 */
+/***/ (function(module, exports) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('scroller', {
+    staticClass: ["lists-detail"],
+    attrs: {
+      "scrollDirection": "horizontal"
+    }
+  }, _vm._l((_vm.list), function(item) {
+    return _c('div', {
+      key: item,
+      staticClass: ["list-detail"]
+    }, _vm._l((item), function(v, k, i) {
+      return _c('text', {
+        key: i,
+        staticClass: ["list-item"]
+      }, [_vm._v(_vm._s(v))])
+    }))
+  }))
+},staticRenderFns: []}
+module.exports.render._withStripped = true
+
+/***/ }),
+/* 286 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __vue_exports__, __vue_options__
+var __vue_styles__ = []
+
+/* styles */
+__vue_styles__.push(__webpack_require__(287)
+)
+
+/* script */
+__vue_exports__ = __webpack_require__(288)
+
+/* template */
+var __vue_template__ = __webpack_require__(289)
+__vue_options__ = __vue_exports__ = __vue_exports__ || {}
+if (
+  typeof __vue_exports__.default === "object" ||
+  typeof __vue_exports__.default === "function"
+) {
+if (Object.keys(__vue_exports__).some(function (key) { return key !== "default" && key !== "__esModule" })) {console.error("named exports are not supported in *.vue files.")}
+__vue_options__ = __vue_exports__ = __vue_exports__.default
+}
+if (typeof __vue_options__ === "function") {
+  __vue_options__ = __vue_options__.options
+}
+__vue_options__.__file = "/Users/liuhongrui/weex-app/src/components/RecordScenic.vue"
+__vue_options__.render = __vue_template__.render
+__vue_options__.staticRenderFns = __vue_template__.staticRenderFns
+__vue_options__._scopeId = "data-v-dbe37898"
+__vue_options__.style = __vue_options__.style || {}
+__vue_styles__.forEach(function (module) {
+  for (var name in module) {
+    __vue_options__.style[name] = module[name]
+  }
+})
+if (typeof __register_static_styles__ === "function") {
+  __register_static_styles__(__vue_options__._scopeId, __vue_styles__)
+}
+
+module.exports = __vue_exports__
+
+
+/***/ }),
+/* 287 */
+/***/ (function(module, exports) {
+
+module.exports = {
+  "lists-detail": {
+    "width": "1500",
+    "marginTop": "30",
+    "display": "flex"
+  },
+  "list-detail": {
+    "display": "flex",
+    "flexDirection": "row",
+    "justifyContent": "space-around"
+  },
+  "list-item": {
+    "height": "60"
+  }
+}
+
+/***/ }),
+/* 288 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+var stream = weex.requireModule("stream");
+
+exports.default = {
+  data: function data() {
+    return {
+      ret: {},
+      res: {},
+      list: []
+    };
+  },
+  created: function created() {
+    stream.fetch({
+      method: "GET",
+      type: "json",
+      url: "http://rechengparty.com:9080/v1/scenic/list"
+    }, function (ret) {
+      that.ret = ret.data;
+      if (that.ret.code == 200) {
+        that.list = that.ret.data;
+      }
+    }, function (res) {
+      that.res = res;
+    });
+  }
+};
+
+/***/ }),
+/* 289 */
+/***/ (function(module, exports) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('scroller', {
+    staticClass: ["lists-detail"],
+    attrs: {
+      "scrollDirection": "horizontal"
+    }
+  }, _vm._l((_vm.list), function(item) {
+    return _c('div', {
+      key: item,
+      staticClass: ["list-detail"]
+    }, _vm._l((item), function(v, k, i) {
+      return _c('text', {
+        key: i,
+        staticClass: ["list-item"]
+      }, [_vm._v(_vm._s(v))])
+    }))
+  }))
 },staticRenderFns: []}
 module.exports.render._withStripped = true
 

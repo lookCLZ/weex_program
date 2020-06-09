@@ -37,64 +37,22 @@
         ></text>
       </div>
     </div>
-    <scroller
-      v-if="active==='project'"
-      scroll-direction="horizontal"
-      class="lists-detail"
-    >
-      <div
-        v-for="item in listProject"
-        :key="item"
-        class="list-detail"
-      >
-        <text
-          v-for="(v,k,i) in item"
-          :key="i"
-          class="list-item"
-        >{{v}}</text>
-      </div>
-    </scroller>
-    <scroller
-      v-if="active==='scenic'"
-      scroll-direction="horizontal"
-      class="lists-detail"
-    >
-      <div
-        v-for="item in list"
-        :key="item"
-        class="list-detail"
-      >
-        <text
-          v-for="(v,k,i) in itemScenic"
-          :key="i"
-          class="list-item"
-        >{{v}}</text>
-      </div>
-    </scroller>
-    <scroller
-      v-if="active==='merchant'"
-      scroll-direction="horizontal"
-      class="lists-detail"
-    >
-      <div
-        v-for="item in listMerchant"
-        :key="item"
-        class="list-detail"
-      >
-        <text
-          v-for="(v,k,i) in item"
-          :key="i"
-          class="list-item"
-        >{{v}}</text>
-      </div>
-    </scroller>
+    <record-merchant v-if="active==='merchant'" />
+    <record-project v-if="active==='project'" />
+    <record-scenic v-if="active==='scenic'" />
+
   </scroller>
 </template>
 <script>
 import Config from "@/config.js";
+import RecordMerchant from "@/components/RecordMerchant";
+import RecordProject from "@/components/RecordProject";
+import RecordScenic from "@/components/RecordScenic";
+
 var stream = weex.requireModule("stream");
 
 export default {
+  components: { RecordMerchant, RecordProject, RecordScenic },
   data() {
     return {
       recordTab: Config.recordTab,
@@ -128,31 +86,6 @@ export default {
   methods: {
     handleToggle(item) {
       this.active = item.key;
-      let that = this;
-      stream.fetch(
-        {
-          method: "GET",
-          type: "json",
-          url: "http://rechengparty.com:9080/v1/" + that.active + "/list"
-        },
-        function(ret) {
-          that.ret = ret.data;
-          if (that.ret.code == 200) {
-            if (this.active == "project") {
-              that.listProject = that.ret.data;
-            }
-            if (this.active == "scenic") {
-              that.listScenic = that.ret.data;
-            }
-            if ((this.active = "merchant")) {
-              that.listMerchant = that.ret.data;
-            }
-          }
-        },
-        function(res) {
-          that.res = res;
-        }
-      );
     }
   }
 };
@@ -199,18 +132,5 @@ export default {
 .tab-title-item-no-active {
   width: 50px;
   height: 10px;
-}
-.lists-detail {
-  width: 1500px;
-  margin-top: 30px;
-  display: flex;
-}
-.list-detail {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-}
-.list-item {
-  height: 60px;
 }
 </style>

@@ -3034,18 +3034,6 @@ var stream = weex.requireModule("stream"); //
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 exports.default = {
   data: function data() {
@@ -3076,6 +3064,7 @@ exports.default = {
   methods: {
     handleToggle: function handleToggle(item) {
       this.active = item.key;
+      this.list = [];
       var that = this;
       stream.fetch({
         method: "GET",
@@ -3139,33 +3128,12 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     return _c('div', {
       key: item,
       staticClass: ["list-detail"]
-    }, [_c('text', {
-      staticClass: ["list-item"]
-    }, [_vm._v(_vm._s(item.customer_name))]), _c('text', {
-      staticClass: ["list-item"]
-    }, [_vm._v(_vm._s(item.customer_phone))]), _c('text', {
-      staticClass: ["list-item"]
-    }, [_vm._v(_vm._s(item.customer_wechat))]), _c('text', {
-      staticClass: ["list-item"]
-    }, [_vm._v(_vm._s(item.customer_origin))]), _c('text', {
-      staticClass: ["list-item"]
-    }, [_vm._v(_vm._s(item.company_name))]), _c('text', {
-      staticClass: ["list-item"]
-    }, [_vm._v(_vm._s(item.customer_perfession))]), _c('text', {
-      staticClass: ["list-item"]
-    }, [_vm._v(_vm._s(item.customer_type))]), _c('text', {
-      staticClass: ["list-item"]
-    }, [_vm._v(_vm._s(item.project_type))]), _c('text', {
-      staticClass: ["list-item"]
-    }, [_vm._v(_vm._s(item.need_product))]), _c('text', {
-      staticClass: ["list-item"]
-    }, [_vm._v(_vm._s(item.project_addr))]), _c('text', {
-      staticClass: ["list-item"]
-    }, [_vm._v(_vm._s(item.project_name))]), _c('text', {
-      staticClass: ["list-item"]
-    }, [_vm._v(_vm._s(item.project_state))]), _c('text', {
-      staticClass: ["list-item"]
-    }, [_vm._v(_vm._s(item.customer_level))])])
+    }, _vm._l((item), function(v, k, i) {
+      return _c('text', {
+        key: i,
+        staticClass: ["list-item"]
+      }, [_vm._v(_vm._s(v))])
+    }))
   }))])
 },staticRenderFns: []}
 module.exports.render._withStripped = true

@@ -1,7 +1,7 @@
 <template>
   <scroller class="record-page">
     <div class="top-section">
-      <text class="title-banner">记录{{active}}</text>
+      <text class="title-banner">记录</text>
       <div class="tab-title">
         <text
           class="tab-title-item"
@@ -38,6 +38,7 @@
       </div>
     </div>
     <scroller
+      v-if="active==='project'"
       scroll-direction="horizontal"
       class="lists-detail"
     >
@@ -46,19 +47,45 @@
         :key="item"
         class="list-detail"
       >
-        <text class="list-item">{{item.customer_name}}</text>
-        <text class="list-item">{{item.customer_phone}}</text>
-        <text class="list-item">{{item.customer_wechat}}</text>
-        <text class="list-item">{{item.customer_origin}}</text>
-        <text class="list-item">{{item.company_name}}</text>
-        <text class="list-item">{{item.customer_perfession}}</text>
-        <text class="list-item">{{item.customer_type}}</text>
-        <text class="list-item">{{item.project_type}}</text>
-        <text class="list-item">{{item.need_product}}</text>
-        <text class="list-item">{{item.project_addr}}</text>
-        <text class="list-item">{{item.project_name}}</text>
-        <text class="list-item">{{item.project_state}}</text>
-        <text class="list-item">{{item.customer_level}}</text>
+        <text
+          v-for="(v,k,i) in item"
+          :key="i"
+          class="list-item"
+        >{{v}}</text>
+      </div>
+    </scroller>
+    <scroller
+      v-if="active==='scenic'"
+      scroll-direction="horizontal"
+      class="lists-detail"
+    >
+      <div
+        v-for="item in list"
+        :key="item"
+        class="list-detail"
+      >
+        <text
+          v-for="(v,k,i) in item"
+          :key="i"
+          class="list-item"
+        >{{v}}</text>
+      </div>
+    </scroller>
+    <scroller
+      v-if="active==='merchant'"
+      scroll-direction="horizontal"
+      class="lists-detail"
+    >
+      <div
+        v-for="item in list"
+        :key="item"
+        class="list-detail"
+      >
+        <text
+          v-for="(v,k,i) in item"
+          :key="i"
+          class="list-item"
+        >{{v}}</text>
       </div>
     </scroller>
   </scroller>
@@ -72,6 +99,7 @@ export default {
     return {
       recordTab: Config.recordTab,
       active: "project",
+      listShow: true,
       ret: {},
       res: {},
       list: []
@@ -99,6 +127,7 @@ export default {
   methods: {
     handleToggle(item) {
       this.active = item.key;
+      this.listShow = false;
       let that = this;
       stream.fetch(
         {
@@ -109,6 +138,7 @@ export default {
         function(ret) {
           that.ret = ret.data;
           if (that.ret.code == 200) {
+            this.listShow = true;
             that.list = that.ret.data;
           }
         },

@@ -1,20 +1,22 @@
 <template>
-  <scroller
-    scroll-direction="horizontal"
-    class="lists-detail"
-  >
-    <div
-      v-for="item in list"
-      :key="item"
-      class="list-detail"
+  <div>
+    <scroller
+      scroll-direction="horizontal"
+      class="lists-detail"
     >
-      <text
-        v-for="(v,k,i) in item"
-        :key="i"
-        class="list-item"
-      >{{v}}</text>
-    </div>
-  </scroller>
+      <div
+        v-for="item in list"
+        :key="item"
+        class="list-detail"
+      >
+        <text
+          v-for="(v,k,i) in item"
+          :key="i"
+          class="list-item"
+        >{{v}}</text>
+      </div>
+    </scroller>
+  </div>
 </template>
 <script>
 var stream = weex.requireModule("stream");
@@ -28,6 +30,7 @@ export default {
     };
   },
   created() {
+    let that = this
     stream.fetch(
       {
         method: "GET",

@@ -36,7 +36,7 @@
       class="item-container"
       :style="contentStyle"
     >
-      <notice />
+      <!-- <notice /> -->
     </div>
 
     <!-- 第四个页面内容-->

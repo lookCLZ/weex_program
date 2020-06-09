@@ -99,6 +99,23 @@ export default {
   methods: {
     handleToggle(item) {
       this.active = item.key;
+      let that = this;
+      stream.fetch(
+        {
+          method: "GET",
+          type: "json",
+          url: "http://rechengparty.com:9080/v1/" + that.active + "/list"
+        },
+        function(ret) {
+          that.ret = ret.data;
+          if (that.ret.code == 200) {
+            that.list = that.ret.data;
+          }
+        },
+        function(res) {
+          that.res = res;
+        }
+      );
     }
   }
 };

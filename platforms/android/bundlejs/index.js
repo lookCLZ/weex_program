@@ -2981,74 +2981,117 @@ var _config2 = _interopRequireDefault(_config);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+var stream = weex.requireModule("stream"); //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
 exports.default = {
   data: function data() {
     return {
       recordTab: _config2.default.recordTab,
-      active: "project"
+      active: "project",
+      ret: {},
+      res: {},
+      list: []
     };
+  },
+  created: function created() {
+    var that = this;
+    stream.fetch({
+      method: "GET",
+      type: "json",
+      url: "http://rechengparty.com:9080/v1/project/list"
+    }, function (ret) {
+      that.ret = ret.data;
+      if (that.ret.code == 200) {
+        that.list = that.ret.data;
+      }
+    }, function (res) {
+      that.res = res;
+    });
   },
 
   methods: {
     handleToggle: function handleToggle(item) {
       this.active = item.key;
+      var that = this;
+      stream.fetch({
+        method: "GET",
+        type: "json",
+        url: "http://rechengparty.com:9080/v1/" + that.active + "/list"
+      }, function (ret) {
+        that.ret = ret.data;
+        if (that.ret.code == 200) {
+          that.list = that.ret.data;
+        }
+      }, function (res) {
+        that.res = res;
+      });
     }
   }
-}; //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+};
 
 /***/ }),
 /* 31 */
@@ -3092,23 +3135,37 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     attrs: {
       "scrollDirection": "horizontal"
     }
-  }, _vm._l(([13, 4, 5, 5, 6, 3, 4, 5, 5, 6, 3, 43, 4, 5, 5, 63, 4, 5, 5, 6, 3, 4, 5, 5, 6, 3, 43, 4, 5, 5, 6, 3, 4, 5, 5, 6, 3, 4, 3, 4, 5, 5, 6, 3, 43, 4, 5, 5, 6, 3, 4, 5, 5, 6, 3, 4, 3, 4, 5, 5, 6, 3, 4, 5, 5, 6, 3, 4, 5, 5, 6, 3, 4, 5, 5, 6]), function(item) {
+  }, _vm._l((_vm.list), function(item) {
     return _c('div', {
       key: item,
       staticClass: ["list-detail"]
     }, [_c('text', {
       staticClass: ["list-item"]
-    }, [_vm._v("成都欢乐谷游乐园")]), _c('text', {
+    }, [_vm._v(_vm._s(item.customer_name))]), _c('text', {
       staticClass: ["list-item"]
-    }, [_vm._v("主题雷雨")]), _c('text', {
+    }, [_vm._v(_vm._s(item.customer_phone))]), _c('text', {
       staticClass: ["list-item"]
-    }, [_vm._v("240/人次")]), _c('text', {
+    }, [_vm._v(_vm._s(item.customer_wechat))]), _c('text', {
       staticClass: ["list-item"]
-    }, [_vm._v("240/人次")]), _c('text', {
+    }, [_vm._v(_vm._s(item.customer_origin))]), _c('text', {
       staticClass: ["list-item"]
-    }, [_vm._v("240/人次")]), _c('text', {
+    }, [_vm._v(_vm._s(item.company_name))]), _c('text', {
       staticClass: ["list-item"]
-    }, [_vm._v("240/人次")])])
+    }, [_vm._v(_vm._s(item.customer_perfession))]), _c('text', {
+      staticClass: ["list-item"]
+    }, [_vm._v(_vm._s(item.customer_type))]), _c('text', {
+      staticClass: ["list-item"]
+    }, [_vm._v(_vm._s(item.project_type))]), _c('text', {
+      staticClass: ["list-item"]
+    }, [_vm._v(_vm._s(item.need_product))]), _c('text', {
+      staticClass: ["list-item"]
+    }, [_vm._v(_vm._s(item.project_addr))]), _c('text', {
+      staticClass: ["list-item"]
+    }, [_vm._v(_vm._s(item.project_name))]), _c('text', {
+      staticClass: ["list-item"]
+    }, [_vm._v(_vm._s(item.project_state))]), _c('text', {
+      staticClass: ["list-item"]
+    }, [_vm._v(_vm._s(item.customer_level))])])
   }))])
 },staticRenderFns: []}
 module.exports.render._withStripped = true

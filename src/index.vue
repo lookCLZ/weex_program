@@ -1,51 +1,26 @@
 <template>
   <div class="wrapper">
-    <login v-if="!logged" />
-    <operate v-if="logged" />
+    <home />
   </div>
 </template>
 
 <script>
-import Operate from "@/components/Operate";
-import Login from "@/components/Login";
-import { WxcTabBar, Utils } from "weex-ui";
-const storage = weex.requireModule("storage");
-const modal = weex.requireModule("modal");
+import Home from "@/components/Home";
 
 export default {
   name: "App",
   components: {
-    Operate,
-    Login
+    Home
   },
   data() {
     return {
-      logged: false
     };
   },
-  mounted() {
-    this.listenStorage();
-  },
-  methods: {
-    listenStorage() {
-      let that = this;
-      setInterval(() => {
-        let res = storage.getItem("login", res => {
-          if (res.result == "success") {
-            that.logged = true;
-          } else {
-            that.logged = false;
-          }
-        });
-      }, 500);
-    }
-  }
 };
 </script>
 
 <style scoped>
 .wrapper {
-  justify-content: center;
-  align-items: center;
+  position: relative;
 }
 </style>

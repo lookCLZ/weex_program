@@ -20,7 +20,7 @@ android {
         variant.outputs.each { output ->
             def outputFile = output.outputFile
             if (outputFile != null && outputFile.name.equals('app-debug.apk')) {
-                def fileName = outputFile.name.replace("app-debug.apk", "尚品美视.apk")
+                def fileName = outputFile.name.replace("app-debug.apk", "飞趣文旅.apk")
                 output.outputFile = new File(outputFile.parent, fileName)
             }
         }
